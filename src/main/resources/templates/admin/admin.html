@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post List</title>
+    <link rel="stylesheet" th:href="@{/css/semantic.min.css}">
+    <link rel="stylesheet" th:href="@{/css/mecss.css}">
+    <link rel="stylesheet" th:href="@{/css/animate.css}">
+    <script th:src="@{/jquery/jquery-3.6.3.js}"></script>
+    <script th:src="@{/js/semantic.min.js}"></script>
+    <link rel="shortcut icon" th:href="@{/imespo.ico}"/>
+
+    <style>
+        .head {
+            color: white;
+            font-style: italic;
+            font-weight: bolder;
+        }
+        body {
+            background: no-repeat;
+            background-image: url("/img/index/eyes.png");
+            background-size: 100%;
+            background-position: 0px -279px;
+            background-attachment:fixed;
+        }
+
+        .copyright {
+            text-align: center;
+            color: white;
+            font-weight: 200;
+        }
+
+
+    </style>
+</head>
+<body>
+<!--导航-->
+<nav class=" ui inverted attached segment m-padded-tb-mini  m-shadow-small">
+    <div class="ui container">
+        <div class="ui inverted menu">
+            <!--                stackable &ndash;&gt; 手机移动端响应-->
+            <div class="ui inverted secondary stackable menu">
+                <a th:href="@{/index/index}"><h2 class=" head header item ">iMesPo</h2></a>
+                <a href="#" class="active m-item item head m-mobile-hide"><i class="browser icon"></i>My Posts</a>
+                <a th:href="@{/admin/types}" class="m-item item head m-mobile-hide"><i class="block layout icon icon"></i>Category</a>
+                <a th:href="@{/admin/tags}" class="m-item item head m-mobile-hide"><i class="tags icon"></i>Tags</a>
+            </div>
+            <div class="right menu m-item m-mobile-hide">
+                <div class="ui dropdown item">
+                    <div>
+                        <img class="ui avatar image m-text" th:src="@{${session.user.avatar}}">
+                        <span style="color: whitesmoke; font-weight: 800" th:text="${session.user.nickname}">ansel</span>
+                    </div>
+                    <i class="dropdown icon"></i>
+                    <div class="menu m-opacity-mini" style="background: #1B1C1D !important;">
+                        <a th:href="@{/ad/logout}" class="item" style="color: whitesmoke !important;">Logout</a>
+                    </div>
+                </div>
+            </div>
+            </div>
+    </div>
+    <a href="#" class="ui menu toggle button m-top-right m-opacity-mini m-mobile-show" style="top: 4px">
+        <i class="sidebar icon"></i>
+    </a>
+</nav>
+
+<!--二级导航-->
+<nav class="m-opacity-mini animated fadeInLeft">
+    <div class="m-container-small m-opacity-mini">
+        <div class="container m-opacity-mini">
+            <div class="ui pointing menu m-opacity-09">
+                <div class="right menu">
+                    <a th:href="@{/admin/post/input}" class="item m-text-head" style="color: #3d3e3f">Post</a>
+                    <a href="#" class="active item m-text-head" style="color: #3d3e3f">List</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</nav>
+
+
+
+<!--中间内容-->
+<div class="m-container-small m-padded-tb-massive transp animated flipInX">
+    <div class="ui container">
+      <div action="#" method="post" class="ui form ">
+
+          <input type="hidden" name="page" >
+          <div class="inline fields stackable">
+              <div class="field">
+                  <input type="text" name="title" placeholder="title">
+              </div>
+              <div class="field">
+                  <div class="ui labeled action input">
+                      <div class="ui type selection dropdown">
+                          <input type="hidden" name="typeId">
+                          <i class="dropdown icon"></i>
+                          <div class="default text">category</div>
+                          <div class="menu">
+                              <!--                         <div th:each="type : ${types}" class="item" data-value="1" th:data-value="${type.id} " th:text="${type.name}">Error</div>-->
+                              <div th:each="type : ${types}" class="item" data-value="1" th:data-value="${type.getId()}" th:text="${type.name}">错误日志</div>
+                          </div>
+                      </div>
+                  </div>
+                  <button class="ui button m-opacity-mini inverted" id="clear-btn" >clear</button>
+              </div>
+              <div class="field">
+                  <div class="ui checkbox">
+                      <input type="checkbox" name="recommended" id="recommended" >
+                      <label for="recommended" class="m-text">Recommend</label>
+                  </div>
+              </div>
+              <div class="field">
+                  <button type="button" id="search-btn"  class="ui button m-opacity-mini inverted"><i class="search icon"></i>Search</button>
+              </div>
+          </div>
+      </div>
+        <div class="ui container  m-margin-tb-large">
+            <div id="table-container">
+                <table class="ui table m-opacity-09 compact" th:fragment="postList">
+                    <thead>
+                    <tr>
+                        <th>Update Date</th>
+                        <th>Title</th>
+                        <th>Update Date</th>
+                        <th>Recommend</th>
+                        <th>Type</th>
+                        <th>Status</th>
+                        <th>Operation</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="post,iterStat : ${page.content}">
+                        <td th:text="${iterStat.count}">Number</td>
+                        <td th:text="${post.title}">Title</td>
+                        <td th:text="${post.updateTime}">Update Date</td>
+                        <th th:text="${post.recommended} ? 'Yes' : 'No'">Recommend</th>
+                        <td th:text="${post.type.name}">Type</td>
+                        <td th:text="${post.published} ? 'Published' : 'Saved'">Status</td>
+<!--                        &lt;!&ndash;                        <th>Operation</th>&ndash;&gt;-->
+
+                        <td>
+                            <a th:href="@{/admin/post/edit/{id}(id=${post.id})}" class="ui blue fluid button m-opacity-mini">Edit</a>
+                            <a th:href="@{/admin/post/delete/{id}(id=${post.id})}" class="ui red fluid button m-opacity-mini">Delete</a>
+                        </td>
+<!--                    </tr>-->
+                    <tr>
+<!--                        <td>Future World</td>-->
+<!--                        <td>2023-1-19</td>-->
+<!--                        <td>Yes</td>-->
+<!--                        <td>Study</td>-->
+<!--                        <td>-->
+<!--&lt;!&ndash;                         有问题   <a th:href="@{/admin/admin/input/{id}(id=${post.id})}" class="ui blue button m-opacity-09">Edit</a>&ndash;&gt;-->
+<!--&lt;!&ndash;                            <a th:href="@{/admin/admin/delete/{id}(id=${post.id})}" class="ui red button m-opacity-09">Delete</a>&ndash;&gt;-->
+<!--                        </td>-->
+                    </tr>
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <th colspan="6">
+                            <div class="ui right floated pagination menu">
+<!--                                th:if="${page.totalPages > 1}"-->
+                                <a th:href="@{/admin/admin(page=${page.number - 1})}" class="icon item" th:unless="${page.first}">
+                                    <i class="left chevron icon"></i>
+                                </a>
+                                <a th:href="@{/admin/admin(page=${page.number + 1})}" class="icon item" th:unless="${page.last}">
+                                    <i class="right chevron icon"></i>
+                                </a>
+
+                            </div>
+                            <a th:href="@{/admin/post/input}" class="ui green button m-opacity-09">Add</a>
+                        </th>
+                    </tr>
+                    </tfoot>
+                </table>
+                <div class="ui success message" th:unless="${#strings.isEmpty(msg)}">
+                    <div class="header">Notification</div>
+                    <i class="icon close"></i>
+                    <p th:text="${msg}"></p>
+                </div>
+            </div>
+
+        </div>
+   </div>
+</div>
+
+<!--底部-->
+<footer th:replace="common :: foot" class="ui vertical segment m-padded-tb-massive">
+    <!--    线-->
+    <div class="ui section divider inverted"></div>
+    <div class="ui container">
+        <!--        分成16分-->
+        <div class="ui divided stackable grid">
+            <div class="three wide column center aligned">
+                <img th:src="@{/img/index/wechat.jpg}" style="width: 9em ; height: 9em">
+                <div>
+                    <i class="wechat icon inverted" style="font-size: 1.5em; margin-top: 0.4em"></i>
+                </div>
+            </div>
+
+            <div class="three wide column  center aligned">
+                <h4 class="ui inverted header m-text-spaced m-text-lined m-opacity-mini" style="font-style: italic ">New Posts</h4>
+                <div class="ui inverted link list">
+                    <a href="#" class="item m-text-spaced m-text-lined m-text-italic">story1</a>
+                    <a href="#" class="item m-text-spaced m-text-lined m-text-italic">story2</a>
+                    <a href="#" class="item m-text-spaced m-text-lined m-text-italic">story3</a>
+                </div>
+            </div>
+            <div class="four wide column center aligned">
+                <h4 class="ui inverted header m-text-spaced m-text-lined m-opacity-mini" style="font-style: italic">Contact Me</h4>
+                <div class="ui inverted link list">
+                    <a href="#" class="item"></a>
+                    <div >
+
+                        <a href="#" class="item m-text-italic m-text-lined m-text-spaced " style="color: lightgrey ; font-weight: bolder; font-size: 1em !important;">
+                    <i class="mail icon" style="font-size: 1em !important;"></i>anxelswanz@gmail.com </a>
+                    </div>
+                    <div>
+                        <a href="#" class="item m-text">
+                            <i class="instagram icon"></i>
+                            <img th:src="@{/img/index/Instagram.png}"  style="width: 70px ; height: 20px; position: relative;top:7px">
+                        </a>
+                    </div>
+
+                    <div>
+                        <a href="#" class="m-text" style="color: lightgrey !important;font-weight: bolder !important; font-size: 1.2em !important;">
+                            <i class="weibo icon inverted" style="font-size: 1em"></i> anxelswanz
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+            <div class="six wide column center aligned">
+
+                <div class="ui inverted header center m-text-spaced m-text-lined m-opacity-mini" style="font-style: italic" > iMesPo</div>
+                <p class="ui item header inverted m-text-spaced m-text-lined m-opacity-mini" style="font-style: italic">My Platform to Share</p>
+            </div>
+        </div>
+    </div>
+    <!--    线-->
+    <div class="ui section divider inverted  center aligned"></div>
+    <p class="copyright m-text-spaced m-text-lined m-opacity-mini">Copyright © 2022-2023 iMesPo Designed by ansel</p>
+</footer>
+
+
+<script>
+    $('.menu.toggle').click(function (){
+        // 点击就去除掉m-mobile-hide样式
+        $('.m-item').toggleClass('m-mobile-hide');
+    });
+
+    $('.ui.dropdown').dropdown({
+        on : 'hover'
+    });
+
+    function page(obj) {
+        $("[name='page']").val($(obj)).data("page");
+         loaddata();
+    }
+
+    function loaddata() {
+        $("#table-container").load(/*[[@{/admin/post/search}]]*/"/admin/post/search",{
+            title : $("[name='title']").val(),
+            typeId : $("[name='typeId']").val(),
+            recommended : $("[name='recommended']").prop('checked'),
+            page : $("[name='page']").val()
+        });
+    }
+
+    $('#search-btn').click(function (){
+        $("[name='page']").val(0);
+        loaddata();
+    })
+
+
+    // 关闭标签
+    $('.message .close')
+       .on('click',function (){
+           $(this)
+              .closest('.message')
+           .transition('fade');
+       });
+
+    //清除
+    $('#clear-btn')
+        .on('click', function() {
+            $('.ui.type.dropdown')
+                .dropdown('clear')
+            ;
+        })
+    ;
+
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Edit</title>
+    <link rel="stylesheet" th:href="@{/css/semantic.min.css}">
+    <link rel="stylesheet" th:href="@{/css/mecss.css}">
+    <link rel="stylesheet" th:href="@{/lib/editmd/css/editormd.css}">
+    <link rel="stylesheet" th:href="@{/css/animate.css}">
+    <script th:src="@{/jquery/jquery-3.6.3.js}"></script>
+    <script th:src="@{/js/semantic.min.js}"></script>
+    <script th:src="@{/lib/editmd/editormd.js}"></script>
+    <link rel="shortcut icon" th:href="@{/imespo.ico}"/>
+    <style>
+        .head {
+            color: white;
+            font-style: italic;
+            font-weight: bolder;
+        }
+        body {
+            background: no-repeat;
+            background-image: url("/img/index/background.png");
+            background-size: 100%;
+            background-position: 0px -500px;
+            background-attachment:fixed;
+        }
+
+        .copyright {
+            text-align: center;
+            color: white;
+            font-weight: 200;
+        }
+
+
+    </style>
+</head>
+<body>
+<!--导航-->
+<nav class="ui inverted attached segment m-padded-tb-mini  m-shadow-small">
+    <div class="ui container">
+        <div class="ui inverted menu">
+            <!--                stackable &ndash;&gt; 手机移动端响应-->
+            <div class="ui inverted secondary stackable menu">
+                <a th:href="@{/index/index}"><h2 class=" head header item ">iMesPo</h2></a>
+                <a href="#" class="active m-item item head m-mobile-hide"><i class="browser icon"></i>My Posts</a>
+                <a th:href="@{/admin/types}" class="m-item item head m-mobile-hide"><i class="block layout icon icon"></i>Category</a>
+                <a th:href="@{/admin/tags}" class="m-item item head m-mobile-hide"><i class="tags icon"></i>Tags</a>
+            </div>
+            <div class="right menu m-item m-mobile-hide">
+                <div class="ui dropdown item">
+                    <div>
+                        <img class="ui avatar image m-text" th:src="@{${session.user.avatar}}">
+                        <span style="color: whitesmoke; font-weight: 800" th:text="${session.user.nickname}">ansel</span>
+                    </div>
+                    <i class="dropdown icon"></i>
+                    <div class="menu m-opacity-mini" style="background: #1B1C1D !important;">
+                        <a th:href="@{/ad/logout}" class="item" style="color: whitesmoke !important;">Logout</a>
+                    </div>
+                </div>
+            </div>
+            </div>
+    </div>
+    <a href="#" class="ui menu toggle button m-top-right m-opacity-mini m-mobile-show" style="top: 4px">
+        <i class="sidebar icon"></i>
+    </a>
+</nav>
+
+<!--二级导航-->
+<nav class="m-opacity-mini animated fadeInLeft">
+    <div class="m-container-small m-opacity-mini">
+        <div class="container m-opacity-mini">
+            <div class="ui pointing menu m-opacity-09">
+                <div class="right menu">
+                    <a href="#" class="active item m-text-head" style="color: #3d3e3f">Post</a>
+                    <a th:href="@{/admin/admin}" class="item m-text-head" style="color: #3d3e3f">List</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</nav>
+
+
+
+<!--中间内容-->
+<div class="m-container-small m-padded-tb-massive transp animated flipInX">
+ <div class="ui container"></div>
+    <form th:action="@{/admin/doEdit}" th:object="${post}" method="post" class="ui form m-opacity-09" id="post-form">
+<!--        <div th:text="*{title}"></div>-->
+        <input type="hidden" name="published">
+        <input type="hidden" name="views" th:value="*{views}">
+        <input type="hidden" name="createTime" th:value="*{createDate}">
+        <input type="hidden" name="id" th:value="*{id}">
+        <div class="ui header inverted m-text-italic">
+            Title
+        </div>
+<!--        标题-->
+        <div class="required field m-opacity-mini">
+            <div class="ui left labeled input">
+                <input type="text" name="title" th:placeholder="*{title}" class="required" th:value="*{title}">
+                <div class="ui selection compact dropdown label m-opacity-09">
+                    <!--                默认选择 选择 value 和 default绑定-->
+                    <input type="hidden" value="Original" name="flag" th:value="*{flag}">
+                    <i class="dropdown icon"></i>
+                    <div class="text">Original</div>
+                    <div class="menu">
+                        <div class="item" data-value="Original">Original</div>
+                        <div class="item" data-value="Copied">Copied</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ui header inverted m-text-italic">
+            Content
+        </div>
+        <div class="required field">
+            <div id="md-content" style="z-index: 1 !important;">
+                <textarea placeholder="Content" name="content" class="m-opacity-09"
+                          style="display: none" th:value="*{content}" th:text="*{content}">
+                   [TOC]
+
+                    #### Disabled options
+
+                    - TeX (Based on KaTeX);
+                    - Emoji;
+                    - Task lists;
+                    - HTML tags decode;
+                    - Flowchart and Sequence Diagram;
+                </textarea>
+            </div>
+        </div>
+<!--        分类 标签-->
+        <div class="two fields">
+            <div class="required field">
+                <div class="ui left labeled input9">
+                    <label class="ui left labeled action input">
+                        <div class="ui compact label">
+                            Category
+                        </div>
+                        <div class="ui selection fluid dropdown">
+                            <i class="dropdown icon"></i>
+                            <div class="default text">
+                                Category
+                            </div>
+                            <div class="menu">
+                                <div th:each="type : ${types}" class="item" data-value="1" th:data-value="${type.getId()}" th:text="${type.name}">错误日志</div>
+<!--                                <div class="item" data-value="1">Study</div>-->
+<!--                                <div class="item" data-value="2">Code</div>-->
+                            </div>
+                            <input type="hidden" name="typeId" th:value="*{type.name}">
+                        </div>
+                    </label>
+                </div>
+            </div>
+            <div class="field">
+                <div class="ui left labeled input">
+                    <label class="ui left labeled action input">
+                        <div class="ui compact label">
+                            Tags
+                        </div>
+                        <div class="ui selection fluid multiple search dropdown">
+                            <input type="hidden" name="tagIds" th:value="*{tagIds}">
+                            <i class="dropdown icon"></i>
+                            <div class="default text">
+                                Tags
+                            </div>
+                            <div class="menu">
+                                <div th:each="tag : ${tags}" class="item" th:data-value="${tag.id}" th:text="${tag.name}"></div>
+<!--                                <div class="item" data-value="1">Study</div>-->
+<!--                                <div class="item" data-value="2">Code</div>-->
+                            </div>
+                        </div>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="required field">
+            <div class="ui right labeled input">
+                <label class="ui label">First Picture</label>
+                <input th:value="*{firstPicture}" type="text" name="firstPicture" th:placeholder="*{firstPicture}" class="m-opacity-mini">
+            </div>
+        </div>
+        <div class="required field">
+            <div class="ui right labeled input">
+                <label class="ui label">Description</label>
+                <textarea th:value="*{description}" th:text="*{description}" type="description" name="description" th:placeholder="*{description}" class="m-opacity-mini" id="description"></textarea>
+            </div>
+        </div>
+<!--            checkbox-->
+        <div class="inline fields">
+            <div class="field">
+                <div class="ui checkbox">
+                    <input th:value="*{recommended}" type="checkbox" name="recommended" class="hidden" id="recommended" checked="checked">
+                    <label for="recommended" class="m-text-color m-opacity-09" style="font-weight: bolder">Recommend</label>
+                </div>
+            </div>
+            <div class="field">
+                <div class="ui checkbox">
+                    <input th:value="*{disclaimer}" type="checkbox" name="disclaimer" class="hidden" id="disclaimer"  checked="checked">
+                    <label for="disclaimer" class="m-text-color m-opacity-09" style="font-weight: bolder">Copyright Disclaimer</label>
+                </div>
+            </div>
+            <div class="field">
+                <div class="ui checkbox">
+                    <input th:value="*{tips}" type="checkbox" name="tips" class="hidden" id="tips">
+                    <label for="tips" class="m-text-color m-opacity-09" style="font-weight: bolder">Can be tipped</label>
+                </div>
+            </div>
+            <div class="field">
+                <div class="ui checkbox">
+                    <input th:value="*{commentabled}" type="checkbox" name="commentabled" class="hidden" id="commentabled" checked="checked">
+                    <label for="commentabled" class="m-text-color m-opacity-09" style="font-weight: bolder">Can be commented</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="ui error message">
+
+        </div>
+<!--        back   post-->
+        <div class="ui container">
+<!--            返回上一个页面-->
+            <button class="ui button" type="button" onclick="window.history.go(-1)">
+                  Back
+            </button >
+            <button type="button" id="save-btn" class="ui right floated green button">
+                Save
+            </button>
+            <button type="button" id="post-btn" class="ui right floated red button">
+                Post
+            </button>
+        </div>
+
+    </form>
+</div>
+
+<!--底部-->
+<footer th:replace="common :: foot" class="ui vertical segment m-padded-tb-massive">
+    <!--    线-->
+    <div class="ui section divider inverted"></div>
+    <div class="ui container">
+        <!--        分成16分-->
+        <div class="ui divided stackable grid">
+            <div class="three wide column center aligned">
+                <img th:src="@{/img/index/wechat.jpg}" style="width: 9em ; height: 9em">
+                <div>
+                    <i class="wechat icon inverted" style="font-size: 1.5em; margin-top: 0.4em"></i>
+                </div>
+            </div>
+
+            <div class="three wide column  center aligned">
+                <h4 class="ui inverted header m-text-spaced m-text-lined m-opacity-mini" style="font-style: italic ">New Posts</h4>
+                <div class="ui inverted link list">
+                    <a href="#" class="item m-text-spaced m-text-lined m-text-italic">story1</a>
+                    <a href="#" class="item m-text-spaced m-text-lined m-text-italic">story2</a>
+                    <a href="#" class="item m-text-spaced m-text-lined m-text-italic">story3</a>
+                </div>
+            </div>
+            <div class="four wide column center aligned">
+                <h4 class="ui inverted header m-text-spaced m-text-lined m-opacity-mini" style="font-style: italic">Contact Me</h4>
+                <div class="ui inverted link list">
+                    <a href="#" class="item"></a>
+                    <div >
+
+                        <a href="#" class="item m-text-italic m-text-lined m-text-spaced " style="color: lightgrey ; font-weight: bolder; font-size: 1em !important;">
+                    <i class="mail icon" style="font-size: 1em !important;"></i>anxelswanz@gmail.com </a>
+                    </div>
+                    <div>
+                        <a href="#" class="item m-text">
+                            <i class="instagram icon"></i>
+                            <img th:src="@{/img/index/Instagram.png}"  style="width: 70px ; height: 20px; position: relative;top:7px">
+                        </a>
+                    </div>
+
+                    <div>
+                        <a href="#" class="m-text" style="color: lightgrey !important;font-weight: bolder !important; font-size: 1.2em !important;">
+                            <i class="weibo icon inverted" style="font-size: 1em"></i> anxelswanz
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+            <div class="six wide column center aligned">
+
+                <div class="ui inverted header center m-text-spaced m-text-lined m-opacity-mini" style="font-style: italic" > iMesPo</div>
+                <p class="ui item header inverted m-text-spaced m-text-lined m-opacity-mini" style="font-style: italic">My Platform to Share</p>
+            </div>
+        </div>
+    </div>
+    <!--    线-->
+    <div class="ui section divider inverted  center aligned"></div>
+    <p class="copyright m-text-spaced m-text-lined m-opacity-mini">Copyright © 2022-2023 iMesPo Designed by ansel</p>
+</footer>
+
+
+<script>
+    $('.menu.toggle').click(function (){
+        // 点击就去除掉m-mobile-hide样式
+        $('.m-item').toggleClass('m-mobile-hide');
+    });
+
+    $('.ui.dropdown').dropdown({
+        on : 'hover'
+    });
+
+    // 表单验证
+
+        $('.ui.form').form({
+        fields:{
+            /*对里面的title的输入进行相关的验证，
+            * type: 验证是否为空*/
+            title:{
+                identifier:'title',
+                rules:[{
+                    type:'empty',
+                    //这个提示需要加入 .ui.erro.message 放在一个容器中进行显示
+                    prompt:'Please type the title'
+                }]
+            },
+            content:{
+                identifier:'content',
+                rules:[{
+
+                    type:'empty',
+                    //这个提示需要加入 .ui.erro.message 放在一个容器中进行显示
+                    prompt:'The content cannot be empty'
+                }]
+            },
+            password:{
+                identifier:'firstPicture',
+                rules:[{
+
+                    type:'empty',
+                    //这个提示需要加入 .ui.erro.message 放在一个容器中进行显示
+                    prompt:'The first picture path cannot be empty'
+                }]
+            }, type:{
+                identifier:'type1',
+                rules:[{
+
+                    type:'empty',
+                    //这个提示需要加入 .ui.erro.message 放在一个容器中进行显示
+                    prompt:'The type cannot be empty'
+                }]
+            }, tag:{
+                identifier:'tagSelect',
+                rules:[{
+
+                    type:'empty',
+                    //这个提示需要加入 .ui.erro.message 放在一个容器中进行显示
+                    prompt:'The tag cannot be empty'
+                }]
+            },
+            description:{
+                identifier:'description',
+                rules:[{
+                    type:'empty',
+                    //这个提示需要加入 .ui.erro.message 放在一个容器中进行显示
+                    prompt:'The description cannot be empty'
+                }]
+            },
+
+        }
+    });
+
+        //markdown js
+    var contentEditor;
+    $(function(){
+        contentEditor=editormd("md-content",{
+            width:'100%',
+            height:640,
+            syncScrolling : "single",
+            path:"/lib/editmd/lib/",
+            //启动本地图片上传功能
+            // imageUpload:true,
+            // imageFormats   : ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
+            // imageUploadURL : "{{url_for('main.upload')}}"
+        });
+    })
+
+    //save
+    $('#save-btn').click(function (){
+        $('[name="published"]').val(false);
+        $('#post-form').submit();
+    });
+    //post
+    $('#post-btn').click(function (){
+        $('[name="published"]').val(true);
+        $('#post-form').submit();
+    });
+
+    $('#button').click(function (){
+        select = $('#typeSelect').val();
+        $('#typeInput').value(select);
+    })
+</script>
+
+
+
+</body>
+</html>

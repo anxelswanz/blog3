@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Error</title>
+    <link rel="stylesheet" th:href="@{/css/semantic.min.css}">
+    <link rel="stylesheet" th:href="@{/css/mecss.css}">
+    <link rel="stylesheet" th:href="@{/css/animate.css}">
+    <script th:src="@{/jquery/jquery-3.6.3.js}"></script>
+    <script th:src="@{/js/semantic.min.js}"></script>
+    <style>
+        .head {
+            color: white;
+            font-style: italic;
+            font-weight: bolder;
+        }
+        body {
+            background: no-repeat;
+            background-image: url("/img/index/background.png");
+            background-size: 100%;
+            background-position: 0px -500px;
+            background-attachment:fixed;
+        }
+
+        .copyright {
+            text-align: center;
+            color: white;
+            font-weight: 200;
+        }
+
+
+    </style>
+</head>
+<body>
+<nav class="ui inverted attached segment m-padded-tb-mini m-shadow-small">
+    <div class="ui container">
+        <div class="ui inverted menu">
+            <!--                stackable &ndash;&gt; 手机移动端响应-->
+            <div class="ui inverted secondary stackable menu">
+                <h2 class=" head header item ">iMesPo</h2>
+                <a href="#" class="m-item active item head m-mobile-hide"><i class="home icon"></i>Home</a>
+                <a href="#" class="m-item item head m-mobile-hide"><i class="block layout icon icon"></i>Category</a>
+                <a href="#" class="m-item item head m-mobile-hide"><i class="tags icon"></i>Tags</a>
+                <a href="#" class="m-item item head m-mobile-hide"><i class="clone icon"></i>Archives</a>
+                <a href="#" class="m-item item head m-mobile-hide"><i class="mail icon"></i>About us</a>
+
+            </div>
+            <div class="item right m-mobile-hide">
+                <!--                    inverted 黑色 -&ndash;&gt; 白色-->
+                <div class="ui icon transparent inverted input ">
+                    <input type="text" placeholder="Search">
+                    <i class="search link icon"></i>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <a href="#" class="ui menu toggle button m-top-right m-opacity-mini m-mobile-show" style="top: 4px">
+        <i class="sidebar icon"></i>
+    </a>
+</nav>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<div style="text-align: center">
+    <h1 style="color: whitesmoke" class="m-text-italic">Error：404</h1>
+    <div class="m-container-small">
+        <div class="ui error message">
+            <div class="ui container">
+                <p>Sorry, the page cannot be found</p>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div th:utext="'&lt;!--'" th:remove="tag"></div>
+        <div th:utext="'Failed Request URL : ' + ${url}" th:remove="tag"></div>
+        <div th:utext="'Exception message : ' + ${exception.message}" th:remove="tag"></div>
+        <ul th:remove="tag">
+            <li th:each="st : ${exception.stackTrace}" th:remove="tag"><span th:utext="${st}" th:remove="tag"></span></li>
+        </ul>
+        <div th:utext="'--&gt;'" th:remove="tag"></div>
+    </div>
+</div>
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+</body>
+</html>

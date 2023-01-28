@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" th:href="@{/css/semantic.min.css}">
+    <link rel="stylesheet" th:href="@{/css/mecss.css}">
+    <link rel="stylesheet" th:href="@{/css/animate.css}">
+    <script th:src="@{/jquery/jquery-3.6.3.js}"></script>
+    <script th:src="@{/js/semantic.min.js}"></script>
+    <link rel="shortcut icon" th:href="@{/imespo.ico}"/>
+    <style>
+        .head {
+            color: white;
+            font-style: italic;
+            font-weight: bolder;
+        }
+        body {
+            background: no-repeat;
+            background-image: url("/img/index/background.png");
+            background-size: 100%;
+            background-position: 0px -500px;
+            background-attachment:fixed;
+        }
+
+        .copyright {
+            text-align: center;
+            color: white;
+            font-weight: 200;
+        }
+    </style>
+</head>
+<body>
+<!--导航-->
+<nav class="ui inverted attached segment m-padded-tb-mini m-shadow-small">
+    <div class="ui container">
+        <div class="ui inverted menu">
+            <!--                stackable &ndash;&gt; 手机移动端响应-->
+            <div class="ui inverted secondary stackable menu">
+                <a th:href="@{/index/index}"><h2 class=" head header item ">iMesPo</h2></a>
+                <a href="#" class="m-item item head m-mobile-hide"><i class="home icon"></i>Home</a>
+                <a href="#" class="m-item item head m-mobile-hide"><i class="block layout icon icon"></i>Category</a>
+                <a href="#" class="m-item item head m-mobile-hide"><i class="tags icon"></i>Tags</a>
+                <a href="#" class="m-item item head m-mobile-hide"><i class="clone icon"></i>Archives</a>
+                <a href="#" class="m-item item head m-mobile-hide"><i class="mail icon"></i>About us</a>
+
+            </div>
+            <div class="item right m-mobile-hide">
+                <!--                    inverted 黑色 -&ndash;&gt; 白色-->
+                <div class="ui icon transparent inverted input ">
+                    <input type="text" placeholder="Search">
+                    <i class="search link icon"></i>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <a href="#" class="ui menu toggle button m-top-right m-opacity-mini m-mobile-show" style="top: 4px">
+        <i class="sidebar icon"></i>
+    </a>
+</nav>
+
+
+<div class="m-container-small m-opacity-mini m-padded-tb-massive animated fadeIn"  style="max-width: 30em !important;">
+    <div class="container">
+        <div class="ui middle aligned center aligned grid">
+            <div class="column">
+                <h2 class="ui image header inverted">
+                    <div class="content">
+                        Register your account
+                    </div>
+                </h2>
+                <form class="ui large form" method="post" th:action="@{/register/doRegister}">
+                    <div class="ui stacked segment">
+                        <div class="field">
+                            <div class="ui left icon input">
+                                <i class="user icon"></i>
+                                <input type="text" name="username" placeholder="Username" id="username" onblur="a1()">
+                            </div>
+                            <span id="usernameInfo" class="m-opacity-mini m-text-italic"></span>
+                        </div>
+                        <div class="field">
+                            <div class="ui left icon input">
+                                <i class="mail icon"></i>
+                                <input type="email" name="email" placeholder="Email" id="email">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="ui left icon input">
+                                <i class="lock icon"></i>
+                                <input type="password" name="password" placeholder="Password" id="inputPassword" onblur="a2()">
+                            </div>
+                            <span id="passwordInfo1" class="m-opacity-mini m-text-italic"></span>
+                        </div>
+                        <div class="field">
+                            <div class="ui left icon input">
+                                <i class="lock icon"></i>
+                                <input type="password" name="password2" placeholder="Please type the password again" id="inputPassword2" onblur="a3()">
+                            </div>
+                            <span id="passwordInfo2" class="m-opacity-mini m-text-italic"></span>
+                        </div>
+                        <button disabled="disabled" id="signInButton" class="ui fluid large green submit button" type="submit">Sign In</button>
+                    </div>
+
+                    <div class="ui error message"></div>
+
+                </form>
+<!--                <div class="ui segment m-opacity-mini" th:if="${msg} != null">-->
+<!--                    <p style="color: indianred ; font-style: italic; font-weight: 1000" th:text="${msg}" class="m-text-italic">-->
+<!--                    </p>-->
+<!--                </div>-->
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--中间内容-->
+
+
+
+<!--底部-->
+<footer th:replace="common :: foot" class="ui vertical segment m-padded-tb-massive">
+    <!--    线-->
+    <div class="ui section divider inverted"></div>
+    <div class="ui container">
+        <!--        分成16分-->
+        <div class="ui divided stackable grid">
+            <div class="three wide column center aligned">
+                <img th:src="@{/img/index/wechat.jpg}" style="width: 9em ; height: 9em">
+                <div>
+                    <i class="wechat icon inverted" style="font-size: 1.5em; margin-top: 0.4em"></i>
+                </div>
+            </div>
+
+            <div class="three wide column  center aligned">
+                <h4 class="ui inverted header m-text-spaced m-text-lined m-opacity-mini" style="font-style: italic ">New Posts</h4>
+                <div class="ui inverted link list">
+                    <a href="#" class="item m-text-spaced m-text-lined m-text-italic">story1</a>
+                    <a href="#" class="item m-text-spaced m-text-lined m-text-italic">story2</a>
+                    <a href="#" class="item m-text-spaced m-text-lined m-text-italic">story3</a>
+                </div>
+            </div>
+            <div class="three wide column center aligned">
+                <h4 class="ui inverted header m-text-spaced m-text-lined m-opacity-mini" style="font-style: italic">Contact Me</h4>
+                <div class="ui inverted link list">
+                    <a href="#" class="item"></a>
+                    <div>
+
+                        <a href="#" class="item m-text-italic m-text-lined m-text-spaced " style="color: lightgrey ; font-weight: bolder; font-size: 1em !important;">
+                            <i class="mail square icon inverted" style="font-size: 1.2em !important;"></i>  anxelswanz@gmail.com</a>
+                    </div>
+                    <div>
+                        <a href="#" class="item m-text">
+                            <i class="instagram icon"></i>
+                            <img th:src="@{/img/index/Instagram.png}"  style="width: 70px ; height: 20px; position: relative;top:7px">
+                        </a>
+                    </div>
+
+                    <div>
+                        <a href="#" class="m-text" style="color: lightgrey !important;font-weight: bolder !important; font-size: 1.2em !important;">
+                            <i class="weibo icon inverted" style="font-size: 1em"></i> anxelswanz
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+            <div class="seven wide column center aligned">
+
+                <div class="ui inverted header center m-text-spaced m-text-lined m-opacity-mini" style="font-style: italic" > iMesPo</div>
+                <p class="ui item header inverted m-text-spaced m-text-lined m-opacity-mini" style="font-style: italic">My Platform to Share</p>
+            </div>
+        </div>
+    </div>
+    <!--    线-->
+    <div class="ui section divider inverted  center aligned"></div>
+    <p class="copyright m-text-spaced m-text-lined m-opacity-mini">Copyright © 2022-2023 iMesPo Designed by ansel</p>
+</footer>
+
+
+<script>
+    $('.ui.form').form({
+        fields:{
+            /*对里面的title的输入进行相关的验证，
+            * type: 验证是否为空*/
+            title:{
+                identifier:'username',
+                rules:[{
+                    type:'empty',
+                    //这个提示需要加入 .ui.erro.message 放在一个容器中进行显示
+                    prompt:'Please type your user name'
+                }]
+            },
+            password:{
+                identifier:'password',
+                rules:[{
+                    type:'empty',
+                    //这个提示需要加入 .ui.erro.message 放在一个容器中进行显示
+                    prompt:'The password is empty'
+                }]
+            },
+        }
+    });
+
+    function a1(){
+        // console.log($("#username").val())
+        $.ajax({
+            url: "/register/verifyUsername",
+            type: "POST",
+            data: {
+                username: $("#username").val(),
+            },
+            success: function (data) {
+                if (data == "OK") {
+                    $("#usernameInfo").html(data);
+                    $("#usernameInfo").val(data);
+                    $("#usernameInfo").css("color","green")
+                    if($("#email").val() != null && $("#usernameInfo").val() =="OK" && $("#passwordInfo1").val() =="OK" && $("#passwordInfo2").val() =="OK"){
+                        $("#signInButton").attr("disabled",false);
+                    }
+                }else {
+                    $("#usernameInfo").html(data);
+                    $("#usernameInfo").css("color","red")
+                    $("#signInButton").attr("disabled",true);
+                }
+
+            }
+        })
+
+    }
+
+    function a2(){
+        $.ajax({
+            url: "/register/verifyPassword",
+            type: "POST",
+            data: {
+                password: $("#inputPassword").val()
+
+            },
+            success: function (data) {
+                if (data == "OK") {
+                    $("#passwordInfo1").html(data);
+                    $("#passwordInfo1").val(data);
+                    $("#passwordInfo1").css("color","green")
+                    if($("#email").val() != null && $("#usernameInfo").val() =="OK" && $("#passwordInfo1").val() =="OK" && $("#passwordInfo2").val() =="OK"){
+                        $("#signInButton").attr("disabled",false);
+                    }
+                }else {
+                    $("#passwordInfo1").html(data);
+                    $("#passwordInfo1").css("color","#9B4A59")
+                    $("#signInButton").attr("disabled",true);
+                }
+            }
+        })
+    }
+
+    function a3(){
+        $.ajax({
+            url: "/register/verifyPassword2",
+            type: "POST",
+            data: {
+                password: $("#inputPassword").val(),
+                password2: $("#inputPassword2").val()
+            },
+            success: function (data) {
+                if (data == "OK") {
+                    $("#passwordInfo2").html(data);
+                    $("#passwordInfo2").val(data);
+                    $("#passwordInfo2").css("color","green")
+                    if($("#email").val() != null && $("#usernameInfo").val() =="OK" && $("#passwordInfo1").val() =="OK" && $("#passwordInfo2").val() =="OK"){
+                        $("#signInButton").attr("disabled",false);
+                    }
+                }else {
+                    $("#passwordInfo2").html(data);
+                    $("#passwordInfo2").css("color","red")
+                    $("#signInButton").attr("disabled",true);
+                }
+            }
+        })
+    }
+</script>
+</body>
+</html>

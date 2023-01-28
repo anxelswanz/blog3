@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>common</title>
+    <link rel="stylesheet" th:href="@{/css/semantic.min.css}">
+    <link rel="stylesheet" th:href="@{/css/mecss.css}">
+    <link rel="stylesheet" th:href="@{/css/animate.css}">
+    <script th:src="@{/jquery/jquery-3.6.3.js}"></script>
+    <script th:src="@{/js/semantic.min.js}"></script>
+    <style>
+        .head {
+            color: white;
+            font-style: italic;
+            font-weight: bolder;
+        }
+        body {
+            background: no-repeat;
+            background-image: url("/img/index/background.png");
+            background-size: 100%;
+            background-position: 0px -500px;
+            background-attachment:fixed;
+        }
+
+        .copyright {
+            text-align: center;
+            color: white;
+            font-weight: 200;
+        }
+
+
+    </style>
+</head>
+<body>
+<nav th:fragment="menu(n)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small">
+    <div class="ui container">
+        <div class="ui inverted menu" style="height: 100%">
+            <!--                stackable &ndash;&gt; 手机移动端响应-->
+            <div class="ui inverted secondary stackable menu">
+                <h2 class=" head header item ">iMesPo</h2>
+                <a th:href="@{/index/index}"  class="m-item item head m-mobile-hide" th:classappend="${n==1} ? 'active'"><i class="home icon"></i>Home</a>
+                <a th:href="@{/category/doType/-1}"  class="m-item item head m-mobile-hide" th:classappend="${n==2} ? 'active'"><i class="block layout icon icon"></i>Category</a>
+                <a th:href="@{/tags/doTags/-1}" class="m-item item head m-mobile-hide" th:classappend="${n==3} ? 'active'"><i class="tags icon"></i>Tags</a>
+                <a th:href="@{/archives}" class="m-item item head m-mobile-hide" th:classappend="${n==4} ? 'active'"><i class="clone icon"></i>Archives</a>
+                <a th:href="@{/about}" class="m-item item head m-mobile-hide" th:classappend="${n==5} ? 'active'"><i class="mail icon"></i>About us</a>
+
+            </div>
+            <div class="item right m-mobile-hide">
+                <form name="search" th:action="@{/index/search}" method="post" target="_blank">
+                    <!--                    inverted 黑色 -&ndash;&gt; 白色-->
+                    <div class="ui icon transparent inverted input ">
+                        <input type="text" placeholder="Search" name="query">
+                        <i onclick="document.forms['search'].submit()" class="search link icon"></i>
+                    </div>
+                </form>
+            </div>
+            <div class="item right m-mobile-hide" th:unless="${session.user}==null">
+                <div class="ui compact menu inverted" >
+                    <div class="ui simple dropdown item">
+                        <img class="ui avatar image m-text" th:src="@{${session.user} != null ? ${session.user.avatar} : '/img/avatar/guest.png'}">
+                        <span style="color: whitesmoke; font-weight: 800" th:text="${session.user.nickname}">ansel</span>
+                        <i class="dropdown icon"></i>
+                        <div class="menu" style=" background: #1B1C1D !important;">
+                            <div class="item" style="color: whitesmoke !important; background: #1B1C1D !important;"> <a th:href="@{/ad/logout}" class="item" style="color: whitesmoke !important;">Logout</a></div>
+                            <div class="item " style="color: whitesmoke !important; background: #1B1C1D !important;"><a th:href="@{/ad/setting}" class="item" style="color: whitesmoke !important;">Setting</a></div>
+                            <div class="item " style="color: whitesmoke !important; background: #1B1C1D !important;"><a th:href="@{/admin/admin}" class="item" style="color: whitesmoke !important;">My Post</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="item right m-mobile-hide" th:unless="${session.user}!=null">
+                 <a th:href="@{/ad/toLogin}" style="color: whitesmoke; font-weight: 1000" class="m-text-italic "><h3>Login</h3></a>
+            </div>
+        </div>
+    </div>
+    <a href="#" class="ui menu toggle button m-top-right m-opacity-mini m-mobile-show" style="top: 4px">
+        <i class="sidebar icon"></i>
+    </a>
+</nav>
+
+
+<footer th:fragment="foot" class="ui vertical segment m-padded-tb-massive">
+    <!--    线-->
+    <div class="ui section divider inverted"></div>
+    <div class="ui container">
+        <!--        分成16分-->
+        <div class="ui divided stackable grid">
+            <div class="three wide column center aligned">
+                <img th:src="@{/img/index/wechat.jpg}" style="width: 9em ; height: 9em">
+                <div>
+                    <i class="wechat icon inverted" style="font-size: 1.5em; margin-top: 0.4em"></i>
+                </div>
+            </div>
+
+            <div class="three wide column  center aligned">
+                <h4 class="ui inverted header m-text-spaced m-text-lined m-opacity-mini" style="font-style: italic ">New Posts</h4>
+                <div class="ui inverted link list" >
+                    <div  th:each="post : ${session.postBottom}">
+                        <a th:href="@{/index/post/{id}(id=${post.id})}" class="item m-text-spaced m-text-lined m-text-italic" th:text="${post.title}">story1</a>
+                    </div>
+                    <!--                    <a href="#" class="item m-text-spaced m-text-lined m-text-italic">story2</a>-->
+                    <!--                    <a href="#" class="item m-text-spaced m-text-lined m-text-italic">story3</a>-->
+                </div>
+            </div>
+            <div class="four wide column center aligned">
+                <h4 class="ui inverted header m-text-spaced m-text-lined m-opacity-mini" style="font-style: italic">Contact Me</h4>
+                <div class="ui inverted link list">
+                    <a href="#" class="item"></a>
+                    <div >
+
+                        <a href="https://mail.google.com/mail?hl=zh-CN" class="item m-text-italic m-text-lined m-text-spaced " style="color: lightgrey ; font-weight: bolder; font-size: 1em !important;">
+                            <i class="mail icon" style="font-size: 1em !important;"></i>anxelswanz@gmail.com </a>
+                    </div>
+                    <div>
+                        <a href="#" class="item m-text">
+                            <i class="instagram icon"></i>
+                            <img class="ins" th:src="@{/img/index/Instagram.png}"  style="width: 70px ; height: 20px; position: relative;top:7px">
+                        </a>
+                    </div>
+
+                    <div>
+                        <a href="https://weibo.com/u/5314546845" target="_blank" class="m-text" style="color: lightgrey !important;font-weight: bolder !important; font-size: 1.2em !important;">
+                            <i class="weibo icon inverted" style="font-size: 1em"></i> anxelswanz
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+            <div class="six wide column center aligned">
+
+                <div class="ui inverted header center m-text-spaced m-text-lined m-opacity-mini" style="font-style: italic" > iMesPo</div>
+                <p class="ui item header inverted m-text-spaced m-text-lined m-opacity-mini" style="font-style: italic">My Platform to Share</p>
+                <img th:src="@{/img/index/logo.png}" class="m-opacity-06">
+            </div>
+        </div>
+    </div>
+    <!--    线-->
+    <div class="ui section divider inverted  center aligned"></div>
+    <p class="copyright m-text-spaced m-text-lined m-opacity-mini">Copyright © 2022-2023 iMesPo Designed by ansel</p>
+    <script>
+        $('.ins').popup({
+            content : "anxelswanz"
+        });
+    </script>
+</footer>
+
+</body>
+</html>

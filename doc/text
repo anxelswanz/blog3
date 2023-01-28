@@ -1,0 +1,59 @@
+类
+1. stackable 移动端响应式 堆积
+2. container 具有自适应的效果
+3. fluit image 图片撑满
+4. active 活跃标签
+5.  <label for="recommend"></label> 点击文字可以选中 for --> id
+6. table + celled 加网格线
+7.  <label class="ui left labeled action input"> action 连接紧密
+8. z-index : 1 设置叠放层次
+9. middle aligned 垂直居中
+jqeury
+点击下来菜单:
+
+<script>
+
+    $('.menu.toggle').click(function (){
+        // 点击就去除掉m-mobile-hide样式
+        $('.m-item').toggleClass('m-mobile-hide');
+    });
+</script>
+<!--导航-->
+    <nav class="ui inverted attached segment m-padded-tb-mini">
+        <div class="ui container">
+            <div class="ui inverted menu">
+<!--                stackable &ndash;&gt; 手机移动端响应-->
+                <div class="ui inverted secondary stackable menu">
+                    <h2 class=" head header item ">iMesPo</h2>
+                    <a href="#" class="m-item item head m-mobile-hide"><i class="home icon"></i>Home</a>
+                    <a href="#" class="m-item item head m-mobile-hide"><i class="block layout icon icon"></i>Category</a>
+                    <a href="#" class="m-item item head m-mobile-hide"><i class="tags icon"></i>Tags</a>
+                    <a href="#" class="m-item item head m-mobile-hide"><i class="mail icon"></i>About us</a>
+
+                </div>
+                <div class="item right m-mobile-hide">
+<!--                    inverted 黑色 -&ndash;&gt; 白色-->
+                    <div class="ui icon transparent inverted input ">
+                        <input type="text" placeholder="Search">
+                        <i class="search link icon"></i>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <a href="#" class="ui menu toggle button m-top-right m-opacity-mini m-mobile-show" style="top: 16px">
+            <i class="sidebar icon"></i>
+        </a>
+    </nav>
+
+插件
+1. markdown编辑器 https://pandao.github.io/editor.md/
+2. markdown --> html 插件commonmark-java https://github.com/atlassian/commonmark-java
+thymeleaf :
+th:fragment = "head(title)" 可以被引用
+th:replace="_fragments :: head(~{::title})"
+th:text="|${post.description}....|" 连接字符串
+th:inline="javascript" 在script取值
+3.th:utext="${post.content}" 这里一定要加u 转换html格式
+4.如果要在js用一些thymleaf 要加<script th:inline="javascript">
+

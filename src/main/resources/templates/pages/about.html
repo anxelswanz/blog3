@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About us</title>
+    <link rel="stylesheet" th:href="@{/css/semantic.min.css}">
+    <link rel="stylesheet" th:href="@{/css/mecss.css}">
+    <link rel="stylesheet" th:href="@{/css/animate.css}">
+    <script th:src="@{/jquery/jquery-3.6.3.js}"></script>
+    <script th:src="@{/js/semantic.min.js}"></script>
+    <script th:src="@{/js/semantic.min.js}"></script>
+    <link rel="stylesheet" th:href="@{/css/animate.css}">
+    <link rel="shortcut icon" th:href="@{/imespo.ico}"/>
+    <style>
+        .head {
+            color: white;
+            font-style: italic;
+            font-weight: bolder;
+        }
+        body {
+            background: no-repeat;
+            background-image: url("/img/index/background.png");
+            background-size: 100%;
+            background-position: 0px -500px;
+            background-attachment:fixed;
+        }
+
+        .copyright {
+            text-align: center;
+            color: white;
+            font-weight: 200;
+        }
+
+
+    </style>
+</head>
+<body>
+<!--导航-->
+<nav th:replace="common :: menu(5)" class="ui inverted attached segment m-padded-tb-mini  m-shadow-small">
+    <div class="ui container">
+        <div class="ui inverted menu">
+            <!--                stackable &ndash;&gt; 手机移动端响应-->
+            <div class="ui inverted secondary stackable menu">
+                <a th:href="@{/index/index}"><h2 class=" head header item ">iMesPo</h2></a>
+                <a href="#" class="m-item item head m-mobile-hide"><i class="home icon"></i>Home</a>
+                <a href="#" class="m-item item head m-mobile-hide"><i class="block layout icon icon"></i>Category</a>
+                <a href="#" class="m-item item head m-mobile-hide"><i class="tags icon"></i>Tags</a>
+                <a href="#" class="m-item item head m-mobile-hide"><i class="clone icon"></i>Archives</a>
+                <a href="#" class="m-item active item head m-mobile-hide"><i class="mail icon"></i>About us</a>
+
+            </div>
+            <div class="item right m-mobile-hide">
+                <form name="search" th:action="@{/index/search}" method="post" target="_blank">
+                    <!--                    inverted 黑色 -&ndash;&gt; 白色-->
+                    <div class="ui icon transparent inverted input ">
+                        <input type="text" placeholder="Search" name="query">
+                        <i onclick="document.forms['search'].submit()" class="search link icon"></i>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <a href="#" class="ui menu toggle button m-top-right m-opacity-mini m-mobile-show" style="top: 4px">
+        <i class="sidebar icon"></i>
+    </a>
+</nav>
+
+
+
+
+<!--中间内容-->
+<div class="m-container-small m-padded-tb-massive transp animated fadeInLeft">
+    <div class="ui container">
+        <div class="ui stackable grid">
+              <div class="eleven wide column">
+                  <img th:src="@{/img/post/about.png}" class="ui rounded image">
+              </div>
+            <div class="five wide column center aligned">
+              <div class="top attached segment center aligned">
+                  <div class="ui header inverted">About us</div>
+              </div>
+                <div class="ui segment transp">
+                      <p class="m-text">iMesPo Author ansel Zhong</p>
+                </div>
+                <div class="ui segment transp">
+                    <p class="m-text m-opacity-mini">Great team that generates inspiring ideas</p>
+                </div>
+                <div class="ui segment transp">
+                    <p class="m-text m-opacity-mini">Join us let's shape our world</p>
+                </div>
+                <div class="ui segment transp">
+                    <a class="ui anxel circular button" href="#" style="font-size:0.6em"><i class="github icon"></i> </a>
+                    <a class="ui QQ circular button" href="#" style="font-size:0.6em"><i class="qq icon"></i> </a>
+                    <a class="ui weChat circular button" href="#" style="font-size:0.6em"> <i class="wechat icon"></i> </a>
+                </div>
+                <div class="ui wechatQR flowing popup transp">
+                    <div class="ui label inverted transp">
+                        <div class="ui images transp" >
+                                <img th:src="@{/img/index/wechat.jpg}" class="ui rounded bordered image" style="width: 50px; height: 50px">
+                                <div class="m-text m-text-center" style=" !important;font-size: 12px !important;">Add Me</div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+    </div>
+</div>
+</div>
+<div class="ui section divider inverted"></div>
+<div class="m-container-small m-padded-tb-massive transp animated fadeInLeft">
+    <div class="ui container">
+        <div class="ui stackable grid">
+            <div class="row center aligned">
+                <div class="six wide column">
+
+                </div>
+                <div class="ten wide column center aligned">
+                    <h1 style="color: whitesmoke" class="m-text-italic">Image Source Path Reference: </h1>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="six wide column">
+                    <img th:src="@{/img/post/default.png}" class="ui rounded image">
+                </div>
+                <div class="ten wide column center aligned">
+                    <h3 style="color: whitesmoke">/img/post/default.png</h3>
+                    <div class="m-padded-tb-large">
+                        <h3 style="color: whitesmoke">Future1</h3>
+                    </div>
+                    <div>
+                        <h3 style="color: whitesmoke">From: unsplash</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="six wide column">
+                    <img th:src="@{/img/post/default2.png}" class="ui rounded image">
+                </div>
+                <div class="ten wide column center aligned">
+                    <h3 style="color: whitesmoke">/img/post/default2.png</h3>
+                    <div class="m-padded-tb-large">
+                        <h3 style="color: whitesmoke">Future2</h3>
+                    </div>
+                    <div>
+                        <h3 style="color: whitesmoke">From: unsplash</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="six wide column">
+                    <img th:src="@{/img/post/study.png}" class="ui rounded image">
+                </div>
+                <div class="ten wide column center aligned">
+                    <h3 style="color: whitesmoke">/img/post/study.png</h3>
+                    <div class="m-padded-tb-large">
+                        <h3 style="color: whitesmoke">Study</h3>
+                    </div>
+                    <div>
+                        <h3 style="color: whitesmoke">From: unsplash</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="six wide column">
+                    <img th:src="@{/img/post/work.png}" class="ui rounded image">
+                </div>
+                <div class="ten wide column center aligned">
+                    <h3 style="color: whitesmoke">/img/post/work.png</h3>
+                    <div class="m-padded-tb-large">
+                        <h3 style="color: whitesmoke">Work</h3>
+                    </div>
+                    <div>
+                        <h3 style="color: whitesmoke">From: unsplash</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="six wide column">
+                    <img th:src="@{/img/post/music.png}" class="ui rounded image">
+                </div>
+                <div class="ten wide column center aligned">
+                    <h3 style="color: whitesmoke">/img/post/music.png</h3>
+                    <div class="m-padded-tb-large">
+                        <h3 style="color: whitesmoke">Music</h3>
+                    </div>
+                    <div>
+                        <h3 style="color: whitesmoke">From: unsplash</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="six wide column">
+                    <img th:src="@{/img/post/cat1.png}" class="ui rounded image">
+                </div>
+                <div class="ten wide column center aligned">
+                    <h3 style="color: whitesmoke">/img/post/cat1.png</h3>
+                    <div class="m-padded-tb-large">
+                        <h3 style="color: whitesmoke">Cat1</h3>
+                    </div>
+                    <div>
+                        <h3 style="color: whitesmoke">From: unsplash</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--底部-->
+<footer  th:replace="common :: foot" class="ui vertical segment m-padded-tb-massive">
+    <!--    线-->
+    <div class="ui section divider inverted"></div>
+    <div class="ui container">
+        <!--        分成16分-->
+        <div class="ui divided stackable grid">
+            <div class="three wide column center aligned">
+                <img th:src="@{/img/index/wechat.jpg}" style="width: 9em ; height: 9em">
+                <div>
+                    <i class="wechat icon inverted" style="font-size: 1.5em; margin-top: 0.4em"></i>
+                </div>
+            </div>
+
+            <div class="three wide column  center aligned">
+                <h4 class="ui inverted header m-text-spaced m-text-lined m-opacity-mini" style="font-style: italic ">New Posts</h4>
+                <div class="ui inverted link list">
+                    <a href="#" class="item m-text-spaced m-text-lined m-text-italic">story1</a>
+                    <a href="#" class="item m-text-spaced m-text-lined m-text-italic">story2</a>
+                    <a href="#" class="item m-text-spaced m-text-lined m-text-italic">story3</a>
+                </div>
+            </div>
+            <div class="four wide column center aligned">
+                <h4 class="ui inverted header m-text-spaced m-text-lined m-opacity-mini" style="font-style: italic">Contact Me</h4>
+                <div class="ui inverted link list">
+                    <a href="#" class="item"></a>
+                    <div >
+
+                        <a href="#" class="item m-text-italic m-text-lined m-text-spaced " style="color: lightgrey ; font-weight: bolder; font-size: 1em !important;">
+                    <i class="mail icon" style="font-size: 1em !important;"></i>anxelswanz@gmail.com </a>
+                    </div>
+                    <div>
+                        <a href="#" class="item m-text">
+                            <i class="instagram icon"></i>
+                            <img th:src="@{/img/index/Instagram.png}"  style="width: 70px ; height: 20px; position: relative;top:7px">
+                        </a>
+                    </div>
+
+                    <div>
+                        <a href="#" class="m-text" style="color: lightgrey !important;font-weight: bolder !important; font-size: 1.2em !important;">
+                            <i class="weibo icon inverted" style="font-size: 1em"></i> anxelswanz
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+            <div class="six wide column center aligned">
+
+                <div class="ui inverted header center m-text-spaced m-text-lined m-opacity-mini" style="font-style: italic" > iMesPo</div>
+                <p class="ui item header inverted m-text-spaced m-text-lined m-opacity-mini" style="font-style: italic">My Platform to Share</p>
+            </div>
+        </div>
+    </div>
+    <!--    线-->
+    <div class="ui section divider inverted  center aligned"></div>
+    <p class="copyright m-text-spaced m-text-lined m-opacity-mini">Copyright © 2022-2023 iMesPo Designed by ansel</p>
+</footer>
+
+
+<script>
+    $('.menu.toggle').click(function (){
+        // 点击就去除掉m-mobile-hide样式
+        $('.m-item').toggleClass('m-mobile-hide');
+    });
+
+    $('.QQ').popup({
+        content : "1035205314"
+    });
+
+    $('.anxel').popup({
+        content : "anxelswanz"
+    });
+
+
+    $('.weChat').popup({
+        popup : $('.wechatQR.popup') ,
+    });
+
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>admin</title>
+</head>
+<body>
+<!--导航-->
+<nav th:fragment="menu(n)" class="ui inverted attached segment m-padded-tb-mini  m-shadow-small">
+    <div class="ui container">
+        <div class="ui inverted menu">
+            <!--                stackable &ndash;&gt; 手机移动端响应-->
+            <div class="ui inverted secondary stackable menu">
+                <a th:href="@{/index/index}"><h2 class=" head header item ">iMesPo</h2></a>
+                <a href="#" class="m-item item head m-mobile-hide" th:classappend="${n==1} ? 'active'"><i class="browser icon"></i>My Posts</a>
+                <a href="#" class="m-item item head m-mobile-hide" th:classappend="${n==2} ? 'active'"><i class="block layout icon icon"></i>Category</a>
+                <a href="#" class="m-item item head m-mobile-hide" th:classappend="${n==3} ? 'active'"><i class="tags icon"></i>Tags</a>
+            </div>
+            <div class="right menu m-item m-mobile-hide">
+                <div class="ui dropdown item">
+                    <div>
+                        <img class="ui avatar image m-text" th:src="@{${session.user.avatar}}">
+                        <span style="color: whitesmoke; font-weight: 800" th:text="${session.user.nickname}">ansel</span>
+                    </div>
+                    <i class="dropdown icon"></i>
+                    <div class="menu m-opacity-mini" style="background: #1B1C1D !important;">
+                        <a th:href="@{/ad/logout}" class="item" style="color: whitesmoke !important;">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="#" class="ui menu toggle button m-top-right m-opacity-mini m-mobile-show" style="top: 4px">
+        <i class="sidebar icon"></i>
+    </a>
+</nav>
+
+<!--二级导航-->
+<nav class="m-opacity-mini animated fadeInLeft">
+    <div class="m-container-small m-opacity-mini">
+        <div class="container m-opacity-mini">
+            <div class="ui pointing menu m-opacity-09">
+                <div class="right menu">
+                    <a href="#" class="item m-text-head" style="color: #3d3e3f">Post</a>
+                    <a href="#" class="active item m-text-head" style="color: #3d3e3f">List</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</nav>
+</body>
+</html>

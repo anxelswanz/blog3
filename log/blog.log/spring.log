@@ -1,0 +1,522 @@
+2023-01-28 09:46:45.623  WARN 30676 --- [DataHikari housekeeper] com.zaxxer.hikari.pool.HikariPool        : DataHikari - Thread starvation or clock leap detected (housekeeper delta=8h44m43s407ms573µs600ns).
+2023-01-28 11:39:17.311  INFO 18340 --- [restartedMain] com.ansel.BlogApplication                : Starting BlogApplication using Java 1.8.0_181 on LAPTOP-JO472BL3 with PID 18340 (D:\java_framework_database\projects\blog\blog-2\target\classes started by 86132 in D:\java_framework_database\projects\blog\blog-2)
+2023-01-28 11:39:17.311  INFO 18340 --- [restartedMain] com.ansel.BlogApplication                : The following 1 profile is active: "dev"
+2023-01-28 11:39:17.358  INFO 18340 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-01-28 11:39:17.358  INFO 18340 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-01-28 11:39:17.844  INFO 18340 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-01-28 11:39:17.891  INFO 18340 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 43 ms. Found 5 JPA repository interfaces.
+2023-01-28 11:39:17.954  WARN 18340 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.ansel.mapper]' package. Please check your configuration.
+2023-01-28 11:39:18.440  INFO 18340 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-01-28 11:39:18.440  INFO 18340 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-01-28 11:39:18.440  INFO 18340 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.64]
+2023-01-28 11:39:18.518  INFO 18340 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-01-28 11:39:18.518  INFO 18340 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1160 ms
+2023-01-28 11:39:18.612  INFO 18340 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-01-28 11:39:18.644  INFO 18340 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.9.Final
+2023-01-28 11:39:18.738  INFO 18340 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-01-28 11:39:18.816  WARN 18340 --- [restartedMain] com.zaxxer.hikari.HikariConfig           : DataHikari - idleTimeout is close to or more than maxLifetime, disabling it.
+2023-01-28 11:39:18.816  INFO 18340 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : DataHikari - Starting...
+2023-01-28 11:39:23.884 ERROR 18340 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : DataHikari - Exception during pool initialization.
+
+com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:406)
+	at com.mysql.jdbc.SQLError.createCommunicationsException(SQLError.java:1074)
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2209)
+	at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:776)
+	at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:46)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:406)
+	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:352)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:284)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:364)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:206)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:476)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:181)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:68)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:35)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:101)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:237)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:214)
+	at org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory.injectServices(DefaultIdentifierGeneratorFactory.java:175)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.injectDependencies(AbstractServiceRegistryImpl.java:286)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:243)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:214)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:173)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:127)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1460)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1494)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:908)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:745)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:420)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:307)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1317)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306)
+	at com.ansel.BlogApplication.main(BlogApplication.java:12)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:406)
+	at com.mysql.jdbc.SQLError.createCommunicationsException(SQLError.java:1074)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:343)
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2132)
+	... 60 common frames omitted
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	at java.net.Socket.<init>(Socket.java:434)
+	at java.net.Socket.<init>(Socket.java:244)
+	at com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:253)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:292)
+	... 61 common frames omitted
+
+2023-01-28 11:39:23.884  WARN 18340 --- [restartedMain] o.h.e.j.e.i.JdbcEnvironmentInitiator     : HHH000342: Could not obtain connection to query metadata
+
+com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:406)
+	at com.mysql.jdbc.SQLError.createCommunicationsException(SQLError.java:1074)
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2209)
+	at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:776)
+	at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:46)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:406)
+	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:352)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:284)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:364)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:206)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:476)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:181)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:68)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:35)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:101)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:237)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:214)
+	at org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory.injectServices(DefaultIdentifierGeneratorFactory.java:175)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.injectDependencies(AbstractServiceRegistryImpl.java:286)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:243)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:214)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:173)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:127)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1460)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1494)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:908)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:745)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:420)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:307)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1317)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306)
+	at com.ansel.BlogApplication.main(BlogApplication.java:12)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:406)
+	at com.mysql.jdbc.SQLError.createCommunicationsException(SQLError.java:1074)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:343)
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2132)
+	... 60 common frames omitted
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	at java.net.Socket.<init>(Socket.java:434)
+	at java.net.Socket.<init>(Socket.java:244)
+	at com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:253)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:292)
+	... 61 common frames omitted
+
+2023-01-28 11:39:23.884 ERROR 18340 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Failed to initialize JPA EntityManagerFactory: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]
+2023-01-28 11:39:23.884  WARN 18340 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is org.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]
+2023-01-28 11:39:23.884  INFO 18340 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-01-28 11:39:23.896  INFO 18340 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2023-01-28 11:39:23.900 ERROR 18340 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is org.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1804)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:908)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:745)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:420)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:307)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1317)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306)
+	at com.ansel.BlogApplication.main(BlogApplication.java:12)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: org.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:275)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:237)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:214)
+	at org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory.injectServices(DefaultIdentifierGeneratorFactory.java:175)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.injectDependencies(AbstractServiceRegistryImpl.java:286)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:243)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:214)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:173)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:127)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1460)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1494)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800)
+	... 21 common frames omitted
+Caused by: org.hibernate.HibernateException: Access to DialectResolutionInfo cannot be null when 'hibernate.dialect' not set
+	at org.hibernate.engine.jdbc.dialect.internal.DialectFactoryImpl.determineDialect(DialectFactoryImpl.java:100)
+	at org.hibernate.engine.jdbc.dialect.internal.DialectFactoryImpl.buildDialect(DialectFactoryImpl.java:54)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:138)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:35)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:101)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263)
+	... 38 common frames omitted
+
+2023-01-28 11:41:06.724  INFO 35864 --- [restartedMain] com.ansel.BlogApplication                : Starting BlogApplication using Java 1.8.0_181 on LAPTOP-JO472BL3 with PID 35864 (D:\java_framework_database\projects\blog\blog-2\target\classes started by 86132 in D:\java_framework_database\projects\blog\blog-2)
+2023-01-28 11:41:06.724  INFO 35864 --- [restartedMain] com.ansel.BlogApplication                : The following 1 profile is active: "dev"
+2023-01-28 11:41:06.755  INFO 35864 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-01-28 11:41:06.755  INFO 35864 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-01-28 11:41:07.257  INFO 35864 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-01-28 11:41:07.304  INFO 35864 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 42 ms. Found 5 JPA repository interfaces.
+2023-01-28 11:41:07.367  WARN 35864 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.ansel.mapper]' package. Please check your configuration.
+2023-01-28 11:41:07.853  INFO 35864 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-01-28 11:41:07.869  INFO 35864 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-01-28 11:41:07.869  INFO 35864 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.64]
+2023-01-28 11:41:07.947  INFO 35864 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-01-28 11:41:07.947  INFO 35864 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1192 ms
+2023-01-28 11:41:08.042  INFO 35864 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-01-28 11:41:08.057  INFO 35864 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.9.Final
+2023-01-28 11:41:08.151  INFO 35864 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-01-28 11:41:08.214  WARN 35864 --- [restartedMain] com.zaxxer.hikari.HikariConfig           : DataHikari - idleTimeout is close to or more than maxLifetime, disabling it.
+2023-01-28 11:41:08.214  INFO 35864 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : DataHikari - Starting...
+2023-01-28 11:41:08.308  INFO 35864 --- [restartedMain] com.zaxxer.hikari.pool.PoolBase          : DataHikari - Driver does not support get/set network timeout for connections. (com.mysql.jdbc.JDBC4Connection.getNetworkTimeout()I)
+2023-01-28 11:41:08.308  INFO 35864 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : DataHikari - Start completed.
+2023-01-28 11:41:08.324  INFO 35864 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL57Dialect
+2023-01-28 11:41:08.810  INFO 35864 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-01-28 11:41:08.810  INFO 35864 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-01-28 11:41:08.826  INFO 35864 --- [restartedMain] f.a.AutowiredAnnotationBeanPostProcessor : Autowired annotation should only be used on methods with parameters: public java.lang.String com.ansel.controller.TestController.index()
+2023-01-28 11:41:09.406  WARN 35864 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-01-28 11:41:09.704  INFO 35864 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-01-28 11:41:10.849  INFO 35864 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-01-28 11:41:10.849  INFO 35864 --- [restartedMain] com.ansel.BlogApplication                : Started BlogApplication in 4.424 seconds (JVM running for 5.512)
+2023-01-28 11:41:20.004  INFO 35864 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-01-28 11:41:20.005  INFO 35864 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-01-28 11:41:20.006  INFO 35864 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2023-01-28 11:41:20.058  WARN 35864 --- [http-nio-8080-exec-1] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 0, SQLState: S1009
+2023-01-28 11:41:20.058 ERROR 35864 --- [http-nio-8080-exec-1] o.h.engine.jdbc.spi.SqlExceptionHelper   : Cannot convert value '2023-01-27 21:59:26.558000' from column 5 to TIMESTAMP.
+2023-01-28 11:41:20.066 ERROR 35864 --- [http-nio-8080-exec-1] c.a.handler.ControllerExceptionHandler   : Request URL : http://localhost:8080/index/index, Exception : {}
+2023-01-28 11:41:20.068  WARN 35864 --- [http-nio-8080-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.orm.jpa.JpaSystemException: could not execute query; nested exception is org.hibernate.exception.GenericJDBCException: could not execute query]
+2023-01-28 11:41:22.363  WARN 35864 --- [http-nio-8080-exec-4] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 0, SQLState: S1009
+2023-01-28 11:41:22.364 ERROR 35864 --- [http-nio-8080-exec-4] o.h.engine.jdbc.spi.SqlExceptionHelper   : Cannot convert value '2023-01-27 21:59:26.558000' from column 5 to TIMESTAMP.
+2023-01-28 11:41:22.364 ERROR 35864 --- [http-nio-8080-exec-4] c.a.handler.ControllerExceptionHandler   : Request URL : http://localhost:8080/index/index, Exception : {}
+2023-01-28 11:41:22.364  WARN 35864 --- [http-nio-8080-exec-4] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.orm.jpa.JpaSystemException: could not execute query; nested exception is org.hibernate.exception.GenericJDBCException: could not execute query]
+2023-01-28 11:43:44.887  WARN 35864 --- [http-nio-8080-exec-10] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 0, SQLState: S1009
+2023-01-28 11:43:44.887 ERROR 35864 --- [http-nio-8080-exec-10] o.h.engine.jdbc.spi.SqlExceptionHelper   : Cannot convert value '2023-01-27 21:59:26.558000' from column 5 to TIMESTAMP.
+2023-01-28 11:43:44.888 ERROR 35864 --- [http-nio-8080-exec-10] c.a.handler.ControllerExceptionHandler   : Request URL : http://localhost:8080/index/index, Exception : {}
+2023-01-28 11:43:44.888  WARN 35864 --- [http-nio-8080-exec-10] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.orm.jpa.JpaSystemException: could not execute query; nested exception is org.hibernate.exception.GenericJDBCException: could not execute query]
+2023-01-28 11:43:51.874  WARN 35864 --- [http-nio-8080-exec-2] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 0, SQLState: S1009
+2023-01-28 11:43:51.874 ERROR 35864 --- [http-nio-8080-exec-2] o.h.engine.jdbc.spi.SqlExceptionHelper   : Cannot convert value '2023-01-27 21:39:51.946000' from column 7 to TIMESTAMP.
+2023-01-28 11:43:51.875 ERROR 35864 --- [http-nio-8080-exec-2] c.a.handler.ControllerExceptionHandler   : Request URL : http://localhost:8080/ad/login, Exception : {}
+2023-01-28 11:43:51.875  WARN 35864 --- [http-nio-8080-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.hibernate.exception.GenericJDBCException: Could not read entity state from ResultSet : EntityKey[com.ansel.pojo.Post#31]]
+2023-01-28 11:43:51.882  WARN 35864 --- [http-nio-8080-exec-2] o.h.e.loading.internal.LoadContexts      : HHH000100: Fail-safe cleanup (collections) : org.hibernate.engine.loading.internal.CollectionLoadContext@4413b577<rs=HikariProxyResultSet@299744349 wrapping com.mysql.jdbc.JDBC4ResultSet@12fc8216>
+2023-01-28 11:43:51.882  WARN 35864 --- [http-nio-8080-exec-2] o.h.e.l.internal.CollectionLoadContext   : HHH000160: On CollectionLoadContext#cleanup, localLoadingCollectionKeys contained [1] entries
+2023-01-28 11:43:56.344  WARN 35864 --- [http-nio-8080-exec-4] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 0, SQLState: S1009
+2023-01-28 11:43:56.344 ERROR 35864 --- [http-nio-8080-exec-4] o.h.engine.jdbc.spi.SqlExceptionHelper   : Cannot convert value '2023-01-27 21:59:26.558000' from column 5 to TIMESTAMP.
+2023-01-28 11:43:56.344 ERROR 35864 --- [http-nio-8080-exec-4] c.a.handler.ControllerExceptionHandler   : Request URL : http://localhost:8080/index/index, Exception : {}
+2023-01-28 11:43:56.345  WARN 35864 --- [http-nio-8080-exec-4] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.orm.jpa.JpaSystemException: could not execute query; nested exception is org.hibernate.exception.GenericJDBCException: could not execute query]
+2023-01-28 11:48:46.743  INFO 39380 --- [restartedMain] com.ansel.BlogApplication                : Starting BlogApplication using Java 1.8.0_181 on LAPTOP-JO472BL3 with PID 39380 (D:\java_framework_database\projects\blog\blog-2\target\classes started by 86132 in D:\java_framework_database\projects\blog\blog-2)
+2023-01-28 11:48:46.743  INFO 39380 --- [restartedMain] com.ansel.BlogApplication                : The following 1 profile is active: "dev"
+2023-01-28 11:48:46.774  INFO 39380 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-01-28 11:48:46.774  INFO 39380 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-01-28 11:48:47.213  INFO 39380 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-01-28 11:48:47.260  INFO 39380 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 48 ms. Found 5 JPA repository interfaces.
+2023-01-28 11:48:47.339  WARN 39380 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.ansel.mapper]' package. Please check your configuration.
+2023-01-28 11:48:47.809  INFO 39380 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-01-28 11:48:47.825  INFO 39380 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-01-28 11:48:47.825  INFO 39380 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.64]
+2023-01-28 11:48:47.903  INFO 39380 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-01-28 11:48:47.903  INFO 39380 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1129 ms
+2023-01-28 11:48:47.997  INFO 39380 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-01-28 11:48:48.013  INFO 39380 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.9.Final
+2023-01-28 11:48:48.107  INFO 39380 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-01-28 11:48:48.170  WARN 39380 --- [restartedMain] com.zaxxer.hikari.HikariConfig           : DataHikari - idleTimeout is close to or more than maxLifetime, disabling it.
+2023-01-28 11:48:48.185  INFO 39380 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : DataHikari - Starting...
+2023-01-28 11:48:48.280  INFO 39380 --- [restartedMain] com.zaxxer.hikari.pool.PoolBase          : DataHikari - Driver does not support get/set network timeout for connections. (com.mysql.jdbc.JDBC4Connection.getNetworkTimeout()I)
+2023-01-28 11:48:48.280  INFO 39380 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : DataHikari - Start completed.
+2023-01-28 11:48:48.296  INFO 39380 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL57Dialect
+2023-01-28 11:48:48.938  INFO 39380 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-01-28 11:48:48.938  INFO 39380 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-01-28 11:48:48.954  INFO 39380 --- [restartedMain] f.a.AutowiredAnnotationBeanPostProcessor : Autowired annotation should only be used on methods with parameters: public java.lang.String com.ansel.controller.TestController.index()
+2023-01-28 11:48:49.628  WARN 39380 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-01-28 11:48:50.005  INFO 39380 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-01-28 11:48:51.259  INFO 39380 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-01-28 11:48:51.275  INFO 39380 --- [restartedMain] com.ansel.BlogApplication                : Started BlogApplication in 4.812 seconds (JVM running for 5.975)
+2023-01-28 11:49:00.699  INFO 39380 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-01-28 11:49:00.699  INFO 39380 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-01-28 11:49:00.699  INFO 39380 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2023-01-28 11:49:00.747  WARN 39380 --- [http-nio-8080-exec-1] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 0, SQLState: S1009
+2023-01-28 11:49:00.747 ERROR 39380 --- [http-nio-8080-exec-1] o.h.engine.jdbc.spi.SqlExceptionHelper   : Cannot convert value '2023-01-27 21:59:26.558000' from column 5 to TIMESTAMP.
+2023-01-28 11:49:00.762 ERROR 39380 --- [http-nio-8080-exec-1] c.a.handler.ControllerExceptionHandler   : Request URL : http://localhost:8080/index/index, Exception : {}
+2023-01-28 11:49:00.762  WARN 39380 --- [http-nio-8080-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.orm.jpa.JpaSystemException: could not execute query; nested exception is org.hibernate.exception.GenericJDBCException: could not execute query]
+2023-01-28 11:56:12.715 ERROR 39380 --- [http-nio-8080-exec-7] c.a.handler.ControllerExceptionHandler   : Request URL : http://localhost:8080/admin/admin, Exception : {}
+2023-01-28 11:56:12.715  WARN 39380 --- [http-nio-8080-exec-7] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NullPointerException]
+2023-01-28 11:56:16.994  WARN 39380 --- [http-nio-8080-exec-7] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 0, SQLState: S1009
+2023-01-28 11:56:16.994 ERROR 39380 --- [http-nio-8080-exec-7] o.h.engine.jdbc.spi.SqlExceptionHelper   : Cannot convert value '2023-01-27 14:38:23.224000' from column 7 to TIMESTAMP.
+2023-01-28 11:56:16.994 ERROR 39380 --- [http-nio-8080-exec-7] c.a.handler.ControllerExceptionHandler   : Request URL : http://localhost:8080/ad/login, Exception : {}
+2023-01-28 11:56:16.995  WARN 39380 --- [http-nio-8080-exec-7] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.hibernate.exception.GenericJDBCException: Could not read entity state from ResultSet : EntityKey[com.ansel.pojo.Post#4]]
+2023-01-28 11:56:17.002  WARN 39380 --- [http-nio-8080-exec-7] o.h.e.loading.internal.LoadContexts      : HHH000100: Fail-safe cleanup (collections) : org.hibernate.engine.loading.internal.CollectionLoadContext@59a5e310<rs=HikariProxyResultSet@1781332868 wrapping com.mysql.jdbc.JDBC4ResultSet@1453a7f9>
+2023-01-28 11:56:17.002  WARN 39380 --- [http-nio-8080-exec-7] o.h.e.l.internal.CollectionLoadContext   : HHH000160: On CollectionLoadContext#cleanup, localLoadingCollectionKeys contained [1] entries
+2023-01-28 11:56:41.076  INFO 32496 --- [restartedMain] com.ansel.BlogApplication                : Starting BlogApplication using Java 1.8.0_181 on LAPTOP-JO472BL3 with PID 32496 (D:\java_framework_database\projects\blog\blog-2\target\classes started by 86132 in D:\java_framework_database\projects\blog\blog-2)
+2023-01-28 11:56:41.076  INFO 32496 --- [restartedMain] com.ansel.BlogApplication                : The following 1 profile is active: "dev"
+2023-01-28 11:56:41.108  INFO 32496 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-01-28 11:56:41.108  INFO 32496 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-01-28 11:56:41.547  INFO 32496 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-01-28 11:56:41.594  INFO 32496 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 41 ms. Found 5 JPA repository interfaces.
+2023-01-28 11:56:41.657  WARN 32496 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.ansel.mapper]' package. Please check your configuration.
+2023-01-28 11:56:42.112  INFO 32496 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-01-28 11:56:42.112  INFO 32496 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-01-28 11:56:42.112  INFO 32496 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.64]
+2023-01-28 11:56:42.190  INFO 32496 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-01-28 11:56:42.190  INFO 32496 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1082 ms
+2023-01-28 11:56:42.300  INFO 32496 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-01-28 11:56:42.331  INFO 32496 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.9.Final
+2023-01-28 11:56:42.410  INFO 32496 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-01-28 11:56:42.488  WARN 32496 --- [restartedMain] com.zaxxer.hikari.HikariConfig           : DataHikari - idleTimeout is close to or more than maxLifetime, disabling it.
+2023-01-28 11:56:42.488  INFO 32496 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : DataHikari - Starting...
+2023-01-28 11:56:42.582  INFO 32496 --- [restartedMain] com.zaxxer.hikari.pool.PoolBase          : DataHikari - Driver does not support get/set network timeout for connections. (com.mysql.jdbc.JDBC4Connection.getNetworkTimeout()I)
+2023-01-28 11:56:42.582  INFO 32496 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : DataHikari - Start completed.
+2023-01-28 11:56:42.598  INFO 32496 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL57Dialect
+2023-01-28 11:56:43.194  INFO 32496 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-01-28 11:56:43.194  INFO 32496 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-01-28 11:56:43.209  INFO 32496 --- [restartedMain] f.a.AutowiredAnnotationBeanPostProcessor : Autowired annotation should only be used on methods with parameters: public java.lang.String com.ansel.controller.TestController.index()
+2023-01-28 11:56:44.013  WARN 32496 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-01-28 11:56:44.201  INFO 32496 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-01-28 11:56:45.478  INFO 32496 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-01-28 11:56:45.478  INFO 32496 --- [restartedMain] com.ansel.BlogApplication                : Started BlogApplication in 4.699 seconds (JVM running for 5.721)
+2023-01-28 11:56:56.403  INFO 32496 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-01-28 11:56:56.403  INFO 32496 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-01-28 11:56:56.416  INFO 32496 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 13 ms
+2023-01-28 11:56:58.280  WARN 32496 --- [http-nio-8080-exec-2] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 0, SQLState: S1009
+2023-01-28 11:56:58.280 ERROR 32496 --- [http-nio-8080-exec-2] o.h.engine.jdbc.spi.SqlExceptionHelper   : Cannot convert value '2023-01-27 14:38:23.224000' from column 7 to TIMESTAMP.
+2023-01-28 11:56:58.282 ERROR 32496 --- [http-nio-8080-exec-2] c.a.handler.ControllerExceptionHandler   : Request URL : http://localhost:8080/ad/login, Exception : {}
+2023-01-28 11:56:58.283  WARN 32496 --- [http-nio-8080-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.hibernate.exception.GenericJDBCException: Could not read entity state from ResultSet : EntityKey[com.ansel.pojo.Post#4]]
+2023-01-28 11:56:58.301  WARN 32496 --- [http-nio-8080-exec-2] o.h.e.loading.internal.LoadContexts      : HHH000100: Fail-safe cleanup (collections) : org.hibernate.engine.loading.internal.CollectionLoadContext@4876108b<rs=HikariProxyResultSet@854207663 wrapping com.mysql.jdbc.JDBC4ResultSet@6c1f33e7>
+2023-01-28 11:56:58.301  WARN 32496 --- [http-nio-8080-exec-2] o.h.e.l.internal.CollectionLoadContext   : HHH000160: On CollectionLoadContext#cleanup, localLoadingCollectionKeys contained [1] entries
+2023-01-28 11:58:35.029  INFO 8324 --- [restartedMain] com.ansel.BlogApplication                : Starting BlogApplication using Java 1.8.0_181 on LAPTOP-JO472BL3 with PID 8324 (D:\java_framework_database\projects\blog\blog-2\target\classes started by 86132 in D:\java_framework_database\projects\blog\blog-2)
+2023-01-28 11:58:35.029  INFO 8324 --- [restartedMain] com.ansel.BlogApplication                : The following 1 profile is active: "dev"
+2023-01-28 11:58:35.060  INFO 8324 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-01-28 11:58:35.060  INFO 8324 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-01-28 11:58:35.515  INFO 8324 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-01-28 11:58:35.562  INFO 8324 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 46 ms. Found 5 JPA repository interfaces.
+2023-01-28 11:58:35.625  WARN 8324 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.ansel.mapper]' package. Please check your configuration.
+2023-01-28 11:58:36.158  INFO 8324 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-01-28 11:58:36.158  INFO 8324 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-01-28 11:58:36.158  INFO 8324 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.64]
+2023-01-28 11:58:36.237  INFO 8324 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-01-28 11:58:36.237  INFO 8324 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1177 ms
+2023-01-28 11:58:36.331  INFO 8324 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-01-28 11:58:36.362  INFO 8324 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.9.Final
+2023-01-28 11:58:36.456  INFO 8324 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-01-28 11:58:36.518  WARN 8324 --- [restartedMain] com.zaxxer.hikari.HikariConfig           : DataHikari - idleTimeout is close to or more than maxLifetime, disabling it.
+2023-01-28 11:58:36.525  INFO 8324 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : DataHikari - Starting...
+2023-01-28 11:58:36.597  INFO 8324 --- [restartedMain] com.zaxxer.hikari.pool.PoolBase          : DataHikari - Driver does not support get/set network timeout for connections. (com.mysql.jdbc.JDBC4Connection.getNetworkTimeout()I)
+2023-01-28 11:58:36.612  INFO 8324 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : DataHikari - Start completed.
+2023-01-28 11:58:36.625  INFO 8324 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL57Dialect
+2023-01-28 11:58:37.099  INFO 8324 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-01-28 11:58:37.099  INFO 8324 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-01-28 11:58:37.115  INFO 8324 --- [restartedMain] f.a.AutowiredAnnotationBeanPostProcessor : Autowired annotation should only be used on methods with parameters: public java.lang.String com.ansel.controller.TestController.index()
+2023-01-28 11:58:37.805  WARN 8324 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-01-28 11:58:37.994  INFO 8324 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-01-28 11:58:39.245  INFO 8324 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-01-28 11:58:39.255  INFO 8324 --- [restartedMain] com.ansel.BlogApplication                : Started BlogApplication in 4.557 seconds (JVM running for 5.697)
+2023-01-28 11:58:40.446  INFO 8324 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-01-28 11:58:40.446  INFO 8324 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-01-28 11:58:40.446  INFO 8324 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2023-01-28 11:58:50.523  WARN 8324 --- [http-nio-8080-exec-3] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [t.posts.size]; use collection function syntax instead [size(t.posts)].
+2023-01-28 11:58:50.527  WARN 8324 --- [http-nio-8080-exec-3] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [t.posts.size]; use collection function syntax instead [size(t.posts)].
+2023-01-28 11:58:52.106 ERROR 8324 --- [http-nio-8080-exec-7] c.a.handler.ControllerExceptionHandler   : Request URL : http://localhost:8080/category/doType/-1, Exception : {}
+2023-01-28 11:58:52.107  WARN 8324 --- [http-nio-8080-exec-7] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.IndexOutOfBoundsException: Index: 0, Size: 0]
+2023-01-28 12:00:09.273  INFO 8324 --- [http-nio-8080-exec-4] com.ansel.aspect.LogAspect               : ---------doBefore----------
+2023-01-28 12:00:09.273  INFO 8324 --- [http-nio-8080-exec-4] com.ansel.aspect.LogAspect               : Request : LogAspect.Requesting(url=http://localhost:8080/about, ip=0:0:0:0:0:0:0:1, classMethod=class com.ansel.controller.TestController.about, args=[])
+2023-01-28 12:00:09.275  INFO 8324 --- [http-nio-8080-exec-4] com.ansel.aspect.LogAspect               : Result : {}pages/about
+2023-01-28 12:00:09.275  INFO 8324 --- [http-nio-8080-exec-4] com.ansel.aspect.LogAspect               : --------doAfter-----------
+2023-01-28 12:00:33.511  INFO 8324 --- [http-nio-8080-exec-5] com.ansel.aspect.LogAspect               : ---------doBefore----------
+2023-01-28 12:00:33.511  INFO 8324 --- [http-nio-8080-exec-5] com.ansel.aspect.LogAspect               : Request : LogAspect.Requesting(url=http://localhost:8080/about, ip=0:0:0:0:0:0:0:1, classMethod=class com.ansel.controller.TestController.about, args=[])
+2023-01-28 12:00:33.511  INFO 8324 --- [http-nio-8080-exec-5] com.ansel.aspect.LogAspect               : Result : {}pages/about
+2023-01-28 12:00:33.511  INFO 8324 --- [http-nio-8080-exec-5] com.ansel.aspect.LogAspect               : --------doAfter-----------
+2023-01-28 12:03:28.177  INFO 7940 --- [restartedMain] com.ansel.BlogApplication                : Starting BlogApplication using Java 1.8.0_181 on LAPTOP-JO472BL3 with PID 7940 (D:\java_framework_database\projects\blog\blog-2\target\classes started by 86132 in D:\java_framework_database\projects\blog\blog-2)
+2023-01-28 12:03:28.177  INFO 7940 --- [restartedMain] com.ansel.BlogApplication                : The following 1 profile is active: "dev"
+2023-01-28 12:03:28.209  INFO 7940 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-01-28 12:03:28.209  INFO 7940 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-01-28 12:03:28.679  INFO 7940 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-01-28 12:03:28.727  INFO 7940 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 50 ms. Found 5 JPA repository interfaces.
+2023-01-28 12:03:28.805  WARN 7940 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.ansel.mapper]' package. Please check your configuration.
+2023-01-28 12:03:29.366  INFO 7940 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-01-28 12:03:29.381  INFO 7940 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-01-28 12:03:29.381  INFO 7940 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.64]
+2023-01-28 12:03:29.475  INFO 7940 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-01-28 12:03:29.475  INFO 7940 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1266 ms
+2023-01-28 12:03:29.632  INFO 7940 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-01-28 12:03:29.679  INFO 7940 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.9.Final
+2023-01-28 12:03:29.836  INFO 7940 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-01-28 12:03:29.915  WARN 7940 --- [restartedMain] com.zaxxer.hikari.HikariConfig           : DataHikari - idleTimeout is close to or more than maxLifetime, disabling it.
+2023-01-28 12:03:29.915  INFO 7940 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : DataHikari - Starting...
+2023-01-28 12:03:30.009  INFO 7940 --- [restartedMain] com.zaxxer.hikari.pool.PoolBase          : DataHikari - Driver does not support get/set network timeout for connections. (com.mysql.jdbc.JDBC4Connection.getNetworkTimeout()I)
+2023-01-28 12:03:30.009  INFO 7940 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : DataHikari - Start completed.
+2023-01-28 12:03:30.025  INFO 7940 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL57Dialect
+2023-01-28 12:03:30.559  INFO 7940 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-01-28 12:03:30.559  INFO 7940 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-01-28 12:03:30.575  INFO 7940 --- [restartedMain] f.a.AutowiredAnnotationBeanPostProcessor : Autowired annotation should only be used on methods with parameters: public java.lang.String com.ansel.controller.TestController.index()
+2023-01-28 12:03:31.343  WARN 7940 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-01-28 12:03:31.531  INFO 7940 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-01-28 12:03:32.708  INFO 7940 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-01-28 12:03:32.712  INFO 7940 --- [restartedMain] com.ansel.BlogApplication                : Started BlogApplication in 4.886 seconds (JVM running for 6.071)
+2023-01-28 12:03:45.918  INFO 7940 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-01-28 12:03:45.918  INFO 7940 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-01-28 12:03:45.940  INFO 7940 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 22 ms
+2023-01-28 12:03:46.012  WARN 7940 --- [http-nio-8080-exec-1] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [t.posts.size]; use collection function syntax instead [size(t.posts)].
+2023-01-28 12:03:46.043  WARN 7940 --- [http-nio-8080-exec-1] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [t.posts.size]; use collection function syntax instead [size(t.posts)].
+2023-01-28 12:08:16.829  INFO 7512 --- [restartedMain] com.ansel.BlogApplication                : Starting BlogApplication using Java 1.8.0_181 on LAPTOP-JO472BL3 with PID 7512 (D:\java_framework_database\projects\blog\blog-2\target\classes started by 86132 in D:\java_framework_database\projects\blog\blog-2)
+2023-01-28 12:08:16.829  INFO 7512 --- [restartedMain] com.ansel.BlogApplication                : The following 1 profile is active: "dev"
+2023-01-28 12:08:16.876  INFO 7512 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-01-28 12:08:16.876  INFO 7512 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-01-28 12:08:17.472  INFO 7512 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-01-28 12:08:17.535  INFO 7512 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 54 ms. Found 5 JPA repository interfaces.
+2023-01-28 12:08:17.613  WARN 7512 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.ansel.mapper]' package. Please check your configuration.
+2023-01-28 12:08:18.162  INFO 7512 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-01-28 12:08:18.162  INFO 7512 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-01-28 12:08:18.162  INFO 7512 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.64]
+2023-01-28 12:08:18.240  INFO 7512 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-01-28 12:08:18.240  INFO 7512 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1364 ms
+2023-01-28 12:08:18.366  INFO 7512 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-01-28 12:08:18.397  INFO 7512 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.9.Final
+2023-01-28 12:08:18.491  INFO 7512 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-01-28 12:08:18.569  WARN 7512 --- [restartedMain] com.zaxxer.hikari.HikariConfig           : DataHikari - idleTimeout is close to or more than maxLifetime, disabling it.
+2023-01-28 12:08:18.569  INFO 7512 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : DataHikari - Starting...
+2023-01-28 12:08:18.680  INFO 7512 --- [restartedMain] com.zaxxer.hikari.pool.PoolBase          : DataHikari - Driver does not support get/set network timeout for connections. (com.mysql.jdbc.JDBC4Connection.getNetworkTimeout()I)
+2023-01-28 12:08:18.680  INFO 7512 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : DataHikari - Start completed.
+2023-01-28 12:08:18.694  INFO 7512 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL57Dialect
+2023-01-28 12:08:19.242  INFO 7512 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-01-28 12:08:19.242  INFO 7512 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-01-28 12:08:19.258  INFO 7512 --- [restartedMain] f.a.AutowiredAnnotationBeanPostProcessor : Autowired annotation should only be used on methods with parameters: public java.lang.String com.ansel.controller.TestController.index()
+2023-01-28 12:08:19.996  WARN 7512 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-01-28 12:08:20.231  INFO 7512 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-01-28 12:08:21.439  INFO 7512 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-01-28 12:08:21.454  INFO 7512 --- [restartedMain] com.ansel.BlogApplication                : Started BlogApplication in 5.131 seconds (JVM running for 7.219)
+2023-01-28 12:08:36.236  INFO 7512 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-01-28 12:08:36.237  INFO 7512 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-01-28 12:08:36.237  INFO 7512 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2023-01-28 12:08:36.312  WARN 7512 --- [http-nio-8080-exec-1] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [t.posts.size]; use collection function syntax instead [size(t.posts)].
+2023-01-28 12:08:36.332  WARN 7512 --- [http-nio-8080-exec-1] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [t.posts.size]; use collection function syntax instead [size(t.posts)].
+2023-01-28 12:09:40.878  INFO 7512 --- [http-nio-8080-exec-7] com.ansel.aspect.LogAspect               : ---------doBefore----------
+2023-01-28 12:09:40.879  INFO 7512 --- [http-nio-8080-exec-7] com.ansel.aspect.LogAspect               : Request : LogAspect.Requesting(url=http://localhost:8080/about, ip=0:0:0:0:0:0:0:1, classMethod=class com.ansel.controller.TestController.about, args=[])
+2023-01-28 12:09:40.881  INFO 7512 --- [http-nio-8080-exec-7] com.ansel.aspect.LogAspect               : Result : {}pages/about
+2023-01-28 12:09:40.881  INFO 7512 --- [http-nio-8080-exec-7] com.ansel.aspect.LogAspect               : --------doAfter-----------
+2023-01-28 12:15:43.509  INFO 7512 --- [http-nio-8080-exec-2] com.ansel.aspect.LogAspect               : ---------doBefore----------
+2023-01-28 12:15:43.509  INFO 7512 --- [http-nio-8080-exec-2] com.ansel.aspect.LogAspect               : Request : LogAspect.Requesting(url=http://localhost:8080/about, ip=0:0:0:0:0:0:0:1, classMethod=class com.ansel.controller.TestController.about, args=[])
+2023-01-28 12:15:43.509  INFO 7512 --- [http-nio-8080-exec-2] com.ansel.aspect.LogAspect               : Result : {}pages/about
+2023-01-28 12:15:43.509  INFO 7512 --- [http-nio-8080-exec-2] com.ansel.aspect.LogAspect               : --------doAfter-----------

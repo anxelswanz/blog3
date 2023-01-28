@@ -1,0 +1,216 @@
+.m-padded-tb-mini {
+    /*1em = 14 px */
+    padding-top: 0.2em !important;
+    padding-top: 0.2em !important;
+}
+
+.m-padded-tb-massive {
+    padding-top: 4em !important;
+    padding-bottom: 4em !important;
+}
+.m-padded-tb-large {
+    padding-top: 3em !important;
+    padding-bottom: 3em !important;
+}
+.m-padded-tb-huge {
+    padding-top: 2em !important;
+    padding-bottom: 2em !important;
+}
+.m-padded-tb-small {
+    padding-top: 1em !important;
+    padding-bottom:1em !important;
+}
+.m-padded-lr {
+    padding-left: 4em;
+    padding-right: 4em;
+}
+/*padding-horizontal*/
+.m-padded-hori-small {
+    padding-left: 1em;
+}
+.m-padded-hori-medium {
+    padding-left: 2em;
+}
+.m-padded-hori-tiny {
+    padding-left: 0.7em;
+}
+
+.m-padded-right-huge {
+    padding-right: 2em;
+}
+/*margin*/
+.m-margin-tb-small {
+   margin-top: 0.3em;
+    margin-bottom: 0.3em;
+}
+.m-margin-tb-large {
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+.m-margin-hori-small-02 {
+    margin-left: 0.3em;
+    margin-right: 0.3em;
+}
+.m-text-thin {
+    font-weight: 300 !important;
+}
+.m-margin-bottom-min {
+    margin-bottom: 0.5em !important;
+}
+/*字间距*/
+.m-text-spaced {
+    letter-spacing: 1px !important;
+}
+.m-text-lined {
+     line-height: 1.8;
+ }
+
+.m-text {
+    font-style: italic !important;
+    font-weight: 300 !important;
+    letter-spacing: 1px !important;
+    line-height: 1.8 !important;
+    color: white !important;
+    font-size: 1.2em;
+}
+
+
+
+.m-text-italic {
+    font-style: italic !important;
+}
+/*透明度*/
+
+.m-opacity-mini {
+    opacity: 0.8 !important;
+}
+
+.m-opacity-06 {
+    opacity: 0.6 !important;
+}
+
+.m-opacity-09 {
+     opacity: 0.9 !important;
+}
+
+.m-opacity-0 {
+    opacity: 0 !important;
+}
+
+.middle-eleven {
+    background: #1B1C1D  !important;
+    /*调整背景图片透明度*/
+    opacity: 0.6;
+}
+
+.m-inline-block {
+    display: inline-block;
+
+}
+
+.transp {
+    background: rgba(0,0,0,0) !important;
+}
+
+/*图片大小*/
+
+.m-photo-size {
+    width: 200px;
+    height: 120px;
+}
+
+/*text*/
+.m-text-center {
+    text-align: center;
+}
+
+.m-text-color {
+    color: white !important;
+    font-weight: 300 !important;
+}
+
+.m-text-head {
+    font-weight: bolder !important;
+    font-size: 1.5em !important;
+    font-style: italic;
+}
+
+.m-profile-photo {
+    width: 15px;
+    height: 15px;
+}
+
+.m-username-color {
+    color: #1a69a4 !important;
+    font-weight: bold !important;
+}
+/*container*/
+.m-container {
+    max-width: 72em !important;
+    margin: auto !important;
+}
+.m-container-small {
+    max-width: 60em !important;
+    margin: auto !important;
+}
+.m-container-large {
+    max-width: 76em !important;
+    margin: auto !important;
+}
+/*position*/
+.m-top-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.m-mobile-show {
+    display: none !important;
+}
+
+.m-shadow-small {
+    -webkit-box-shadow:0 4px 12px rgba(0,0,0,0.2) !important;;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3) !important;
+}
+/*手机端隐藏*/
+@media screen and (max-width: 768px){
+    .m-mobile-hide {
+        display: none !important;
+    }
+    .m-mobile-show {
+        display: block !important;
+    }
+    .m-padded-lr {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+    .m-mobile-wide {
+        width: 100%;
+    }
+}
+
+body {
+    background: no-repeat;
+    background-image: url("/img/index/background.png");
+    background-size: 100%;
+    background-position: 0px -500px;
+    background-attachment:fixed;
+}
+
+.m-text-center {
+    text-align: center;
+}
+
+/*position*/
+
+.m-fix {
+    position: fixed !important;
+}
+.m-right-bottom {
+    bottom: 0 !important;
+    right: 0 !important;
+}
+
+.m-list {
+    list-style: none;
+}

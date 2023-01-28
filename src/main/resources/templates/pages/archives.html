@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Archives</title>
+    <link rel="stylesheet" th:href="@{/css/semantic.min.css}">
+    <link rel="stylesheet" th:href="@{/css/mecss.css}">
+    <link rel="stylesheet" th:href="@{/css/animate.css}">
+    <script th:src="@{/jquery/jquery-3.6.3.js}"></script>
+    <script th:src="@{/js/semantic.min.js}"></script>
+    <link rel="shortcut icon" th:href="@{/imespo.ico}"/>
+    <style>
+        .head {
+            color: white;
+            font-style: italic;
+            font-weight: bolder;
+        }
+        body {
+            background: no-repeat;
+            background-image: url("/img/index/background.png");
+            background-size: 100%;
+            background-position: 0px -500px;
+            background-attachment:fixed;
+        }
+
+        .copyright {
+            text-align: center;
+            color: white;
+            font-weight: 200;
+        }
+
+
+    </style>
+</head>
+<body>
+<!--导航-->
+<nav  th:replace="common :: menu(4)" class="ui inverted attached segment m-padded-tb-mini  m-shadow-small">
+    <div class="ui container">
+        <div class="ui inverted menu">
+            <!--                stackable &ndash;&gt; 手机移动端响应-->
+            <div class="ui inverted secondary stackable menu">
+                <a th:href="@{/index/index}"><h2 class=" head header item ">iMesPo</h2></a>
+                <a href="#" class="m-item item head m-mobile-hide"><i class="home icon"></i>Home</a>
+                <a href="#" class="m-item item head m-mobile-hide"><i class="block layout icon icon"></i>Category</a>
+                <a href="#" class="m-item item head m-mobile-hide"><i class="tags icon"></i>Tags</a>
+                <a href="#" class="m-item active item head m-mobile-hide"><i class="clone icon"></i>Archives</a>
+                <a href="#" class="m-item item head m-mobile-hide"><i class="mail icon"></i>About us</a>
+
+            </div>
+            <div class="item right m-mobile-hide">
+                <form name="search" th:action="@{/index/search}" method="post" target="_blank">
+                    <!--                    inverted 黑色 -&ndash;&gt; 白色-->
+                    <div class="ui icon transparent inverted input ">
+                        <input type="text" placeholder="Search" name="query">
+                        <i onclick="document.forms['search'].submit()" class="search link icon"></i>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <a href="#" class="ui menu toggle button m-top-right m-opacity-mini m-mobile-show" style="top: 4px">
+        <i class="sidebar icon"></i>
+    </a>
+</nav>
+
+
+
+
+<!--中间内容-->
+<div class="container m-padded-tb-huge transp animated fadeInLeft">
+    <!--                头部-->
+    <div class="ui segment transp">
+        <div class="ui segment middle-eleven">
+            <div class="ui middle aligned two column grid stackable">
+                <div class="column">
+                    <h3 class="ui header m-text-italic inverted m-opacity-09">Archives</h3>
+                </div>
+                <div class="right aligned column" style="position: relative; top: 0.6em">
+                    <h3 class="ui header inverted m-inline-block" th:text="${postCount}">15</h3> &nbsp; <span class="inverted m-text-italic m-opacity-09" style="color: white">archives at total</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <th:block th:each="item : ${archiveMap}">
+        <h2 class="ui center aligned header inverted m-opacity-09 m-text-italic" th:text="${item.key}">2023</h2>
+        <div class="ui vertical menu transp fluid">
+            <a th:href="@{/index/post/{id}(id=${post.id})}" target="_blank" class="item m-text inverted m-opacity-mini" th:each="post : ${item.value}">
+            <span>
+                <i class="file online icon"></i><span th:text="${post.title}">The future world</span>
+                <div class="ui left pointing label"  th:text="${#dates.format(post.updateTime,'yyyy-MM-dd')}"> 9-13 </div>
+           </span>
+                <div class="ui label" style="position: relative; top: 0.8em"> Original<i class="user icon m-padded-hori-small" th:span="${post.user.nickname}"> ansel</i></div>
+            </a>
+<!--            <a href="#" target="_blank" class="item m-text inverted m-opacity-mini">-->
+<!--            <span>-->
+<!--                <i class="file online icon"></i>The future world-->
+<!--                <div class="ui left pointing label"> 9-13 </div>-->
+<!--           </span>-->
+<!--                <div class="ui label" style="position: relative; top: 0.8em"> Original<i class="user icon m-padded-hori-small"> ansel</i></div>-->
+<!--            </a>-->
+
+<!--            <a href="#" target="_blank" class="item m-text inverted m-opacity-mini">-->
+<!--            <span>-->
+<!--                <i class="file online icon"></i>The future world-->
+<!--                <div class="ui left pointing label"> 9-13 </div>-->
+<!--           </span>-->
+<!--                <div class="ui label" style="position: relative; top: 0.8em"> Original<i class="user icon m-padded-hori-small"> ansel</i></div>-->
+<!--            </a>-->
+        </div>
+    </th:block>
+
+
+<!--    <h2 class="ui center aligned header inverted m-opacity-09 m-text-italic">2024</h2>-->
+<!--    <div class="ui vertical menu transp fluid">-->
+<!--        <a href="#" target="_blank" class="item m-text inverted m-opacity-mini">-->
+<!--            <span>-->
+<!--                <i class="file online icon"></i>The future world-->
+<!--                <div class="ui left pointing label"> 9-13 </div>-->
+<!--           </span>-->
+<!--            <div class="ui label" style="position: relative; top: 0.8em"> Original<i class="user icon m-padded-hori-small"> ansel</i></div>-->
+<!--        </a>-->
+
+<!--        <a href="#" target="_blank" class="item m-text inverted m-opacity-mini">-->
+<!--            <span>-->
+<!--                <i class="file online icon"></i>The future world-->
+<!--                <div class="ui left pointing label"> 9-13 </div>-->
+<!--           </span>-->
+<!--            <div class="ui label" style="position: relative; top: 0.8em"> Original<i class="user icon m-padded-hori-small"> ansel</i></div>-->
+<!--        </a>-->
+
+<!--        <a href="#" target="_blank" class="item m-text inverted m-opacity-mini">-->
+<!--            <span>-->
+<!--                <i class="file online icon"></i>The future world-->
+<!--                <div class="ui left pointing label"> 9-13 </div>-->
+<!--           </span>-->
+<!--            <div class="ui label" style="position: relative; top: 0.8em"> Original<i class="user icon m-padded-hori-small"> ansel</i></div>-->
+<!--        </a>-->
+<!--    </div>-->
+
+</div>
+
+
+
+
+<!--底部-->
+<footer  th:replace="common :: foot" class="ui vertical segment m-padded-tb-massive">
+    <!--    线-->
+    <div class="ui section divider inverted"></div>
+    <div class="ui container">
+        <!--        分成16分-->
+        <div class="ui divided stackable grid">
+            <div class="three wide column center aligned">
+                <img th:src="@{/img/index/wechat.jpg}" style="width: 9em ; height: 9em">
+                <div>
+                    <i class="wechat icon inverted" style="font-size: 1.5em; margin-top: 0.4em"></i>
+                </div>
+            </div>
+
+            <div class="three wide column  center aligned">
+                <h4 class="ui inverted header m-text-spaced m-text-lined m-opacity-mini" style="font-style: italic ">New Posts</h4>
+                <div class="ui inverted link list">
+                    <a href="#" class="item m-text-spaced m-text-lined m-text-italic">story1</a>
+                    <a href="#" class="item m-text-spaced m-text-lined m-text-italic">story2</a>
+                    <a href="#" class="item m-text-spaced m-text-lined m-text-italic">story3</a>
+                </div>
+            </div>
+            <div class="four wide column center aligned">
+                <h4 class="ui inverted header m-text-spaced m-text-lined m-opacity-mini" style="font-style: italic">Contact Me</h4>
+                <div class="ui inverted link list">
+                    <a href="#" class="item"></a>
+                    <div >
+
+                        <a href="#" class="item m-text-italic m-text-lined m-text-spaced " style="color: lightgrey ; font-weight: bolder; font-size: 1em !important;">
+                    <i class="mail icon" style="font-size: 1em !important;"></i>anxelswanz@gmail.com </a>
+                    </div>
+                    <div>
+                        <a href="#" class="item m-text">
+                            <i class="instagram icon"></i>
+                            <img th:src="@{/img/index/Instagram.png}"  style="width: 70px ; height: 20px; position: relative;top:7px">
+                        </a>
+                    </div>
+
+                    <div>
+                        <a href="#" class="m-text" style="color: lightgrey !important;font-weight: bolder !important; font-size: 1.2em !important;">
+                            <i class="weibo icon inverted" style="font-size: 1em"></i> anxelswanz
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+            <div class="six wide column center aligned">
+
+                <div class="ui inverted header center m-text-spaced m-text-lined m-opacity-mini" style="font-style: italic" > iMesPo</div>
+                <p class="ui item header inverted m-text-spaced m-text-lined m-opacity-mini" style="font-style: italic">My Platform to Share</p>
+            </div>
+        </div>
+    </div>
+    <!--    线-->
+    <div class="ui section divider inverted  center aligned"></div>
+    <p class="copyright m-text-spaced m-text-lined m-opacity-mini">Copyright © 2022-2023 iMesPo Designed by ansel</p>
+</footer>
+
+
+<script>
+    $('.menu.toggle').click(function (){
+        // 点击就去除掉m-mobile-hide样式
+        $('.m-item').toggleClass('m-mobile-hide');
+    });
+</script>
+
+</body>
+</html>

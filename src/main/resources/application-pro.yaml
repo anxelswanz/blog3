@@ -1,0 +1,27 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://locahost:3306/iMesPo?useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: zrh
+    hikari:
+      pool-name: DataHikari
+      minimum-idle: 5
+      idle-timeout: 1800000
+      maximum-pool-size: 20
+      auto-commit: true
+      max-lifetime: 1800000
+
+#mybatis-plus
+#mybatis-plus:
+#  mapper-locations: classpath:/mapper/*Mapper.xml
+#  type-aliases-package: com.ansel.pojo
+logging:
+  level:
+    root: warn
+    com.ansl: debug
+  file:
+    path: log/blog-pro.log
+server:
+  port: 8081
+#logging

@@ -1,0 +1,21 @@
+1. 类
+blog  --> type tags comment
+tags  <--> blog
+type
+comment
+user <--> blog
+
+2.评论自关联: parentComment ---> replycomment
+
+blog
+标题       赞赏开启       创建时间
+内容       评论开启       更新时间
+首图       版权开启
+标记       评论开启
+浏览次数    发布
+
+comment
+昵称 邮箱 头像 评论内容 创建时间
+
+User
+昵称 用户名 密码 邮箱 类型 头像 创建时间 更新时间
